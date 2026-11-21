@@ -53,6 +53,8 @@ window.CHANGELOG = {
       items: [
         { zh: "修复：大师联赛外租球员到期归队时，如果原编号已被新球员占用，“继续”会一直提示 action failed、日期无法推进；已经卡住的存档，更新后按一次“继续”即可恢复",
           en: "Fix: in Master League, when a player returned from a loan and his number had been given to a new player, \"Continue\" kept failing with \"action failed\"; a stuck career recovers on the next \"Continue\" after updating" },
+        { zh: "修复：导入 V32 导出的 DIY 球员作品后，“检查资源并预览”报错 Cannot read properties of undefined (reading 'cardSuite')、无法生成的问题",
+          en: "Fix: DIY player projects exported from V32 failed on \"Check resources and preview\" with \"Cannot read properties of undefined (reading 'cardSuite')\" and could not be generated" },
         { zh: "优化：这次更新只需下载几 MB 的更新包，资源不用重新下载",
           en: "Improved: this update is only a few MB; resources are not downloaded again" }
       ]
