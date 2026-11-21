@@ -1,20 +1,25 @@
 EFR-CHANNEL-1
 track	beta
-serial	20261121112453
-published	2026-11-21T11:24:53+00:00
-app.versionCode	311010210
-app.versionName	1.0.1
+serial	20261121115750
+published	2026-11-21T11:57:50+00:00
+app.versionCode	311010211
+app.versionName	1.0.2
 app.minVersionCode	0
-app.bytes	1961704491
-app.sha256	9686561c968ae3bf673def1c0aada1ddb6c8e7c6bca912551d80d61b9ef38596
-app.url	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.1-beta/73efootball-1.0.1.apk
-app.url	https://github.com/7othreee/73football/releases/download/v1.0.1-beta/73efootball-1.0.1.apk
-app.notes	73efootball 1.0.1 测试版：\n· 新增「下载资源」面板：显示速度、剩余时间，可暂停/后台下载\n· 资源更新改为可选：首页提示，可先看更新日志再决定\n· 国内下载加速镜像\n· 英文界面补全下载/更新相关文字
-app.delta	311010209	2380008	fb79dabbe62146b9bce61b4d0e3c60da77a984ac85468a8f1747f644d8541c85	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.1-beta/73efootball-1.0.0--to--73efootball-1.0.1.efd
-app.delta	311010209	2380008	fb79dabbe62146b9bce61b4d0e3c60da77a984ac85468a8f1747f644d8541c85	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.1-beta/73efootball-1.0.0--to--73efootball-1.0.1.efd
-app.delta	311010209	2380008	fb79dabbe62146b9bce61b4d0e3c60da77a984ac85468a8f1747f644d8541c85	https://github.com/7othreee/73football/releases/download/v1.0.1-beta/73efootball-1.0.0--to--73efootball-1.0.1.efd
+app.bytes	1961712683
+app.sha256	dde9ecba31df9bde24e6df34d3f9d6ba1eeda1ace4bd3d31d9fe9304f764a829
+app.url	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.2.apk
+app.url	https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.2.apk
+app.notes	73efootball 1.0.2 测试版：\n· 更新提示改为启动器样式，可选「此版本不再提示」\n· 第一次更新先申请安装权限，从设置回来自动继续，不再重新下载\n· 新增「检查更新」：检查 App 更新、检查资源更新、切换更新通道\n· 更新说明按界面语言显示中文或英文
+app.notes.en	73efootball 1.0.2 test build:\n· The update prompt now matches the launcher style, with "Don't remind me about this version"\n· The first in-app update asks for install permission first and continues by itself when you come back, without downloading again\n· New "Check for updates": app update, resource update and update channel in one place\n· Update notes follow the app language (Chinese or English)
+app.delta	311010209	2388200	2e8ea88bb978a2b22dd5f8e42f17d144bef18c6aee2e7b024b42ca668378cfec	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.0--to--73efootball-1.0.2.efd
+app.delta	311010209	2388200	2e8ea88bb978a2b22dd5f8e42f17d144bef18c6aee2e7b024b42ca668378cfec	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.0--to--73efootball-1.0.2.efd
+app.delta	311010209	2388200	2e8ea88bb978a2b22dd5f8e42f17d144bef18c6aee2e7b024b42ca668378cfec	https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.0--to--73efootball-1.0.2.efd
+app.delta	311010210	1676659	c52614d34baf083280129f49255bc51c2044b0b6cc286faabbe5335c5cf6a8a4	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.1--to--73efootball-1.0.2.efd
+app.delta	311010210	1676659	c52614d34baf083280129f49255bc51c2044b0b6cc286faabbe5335c5cf6a8a4	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.1--to--73efootball-1.0.2.efd
+app.delta	311010210	1676659	c52614d34baf083280129f49255bc51c2044b0b6cc286faabbe5335c5cf6a8a4	https://github.com/7othreee/73football/releases/download/v1.0.2-beta/73efootball-1.0.1--to--73efootball-1.0.2.efd
 resources	311010209	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010210	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
+resources	311010211	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 bundle	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	1078110
 object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://ghfast.top/https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
 object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
@@ -22,4 +27,4 @@ object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://
 pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	0	1992294400	1af9ea149e2117ed9bf06db7280c14a94a0722d682c1cf51da566f8dd83ff2c2
 pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	1	1992294400	0c734b57ea8a783e888ef0e8330e1024f062ed94d4ad9c122c5e18de8c97a821
 pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	2	567516842	86f286202feb2b4ded0609e3d94c752a7d37ad7c66f4b51b8e51b0fb99c9fe57
-sig	MEUCIQDwnH1VVmuZ6zNmhG31snEj4T6RZQQUr3ht0YhKaux8YwIgUx0U8/JRsCLnFh1+4Wt8Mtyhz09g0tm3G23CQniZ0Y0=
+sig	MEYCIQCm2HHjO5QnLGSfEpkXN0WzeUCER8+CO1qO6hsr1EXMggIhAMscDCHzDyxR8ICJiTan38tKL2Y0TupVcAZ7ixY3QCrm
