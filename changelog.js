@@ -31,7 +31,7 @@ window.CHANGELOG = {
     // QQ 闪传下载安装包：填完整 https 链接后页面显示可点击的「QQ 闪传下载」按钮；留空 "" 则显示「暂无」。
     // qqNote 可选，写提取码/有效期等提示，可写 { zh: "…", en: "…" }；没写则显示默认提示。
     // 每次发新 APK 要换成新的 QQ 链接（发布脚本不会替你改，也不会清空，旧链接仍指向旧包）。
-    qqUrl: "https://qfile.qq.com/q/x7KgVPcqTo",
+    qqUrl: "https://qfile.qq.com/q/6tb1llkvyE",
     qqNote: "",
     // Telegram 下载安装包（只在英文页显示，类似中文页的 QQ 闪传）：填频道或某条消息的 https://t.me/... 链接；留空则不显示。
     // tgNote 可选，可写 { zh: "…", en: "…" }；没写显示默认提示。
