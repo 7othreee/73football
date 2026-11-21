@@ -1,41 +1,45 @@
 EFR-CHANNEL-1
 track	beta
-serial	20261121163401
-published	2026-11-21T16:34:01+00:00
-app.versionCode	311010215
-app.versionName	1.0.4.1
+serial	20261121174945
+published	2026-11-21T17:49:45+00:00
+app.versionCode	311010216
+app.versionName	1.0.4.5
 app.minVersionCode	0
-app.bytes	1961766010
-app.sha256	f39d7745e918d850429d14877df227cb040684d3e0826f0e5f4d79b41c295738
-app.url	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4.1.apk
-app.url	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4.1.apk
-app.url	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4.1.apk
-app.notes	73efootball 1.0.4.1 测试版：\n· 修复：导入 V32 导出的 DIY 球员作品后，“检查资源并预览”有时报错 Cannot read properties of undefined (reading 'cardSuite')、无法生成\n· 修复：以后资源更新时，游戏自己改写过的文件不再被当成损坏，不会再卡在“校验资源”\n· 只需下载几 MB 的更新包，资源不用重新下载
-app.notes.en	73efootball 1.0.4.1 test build:\n· Fix: DIY player projects exported from V32 sometimes failed on "Check resources and preview" with "Cannot read properties of undefined (reading 'cardSuite')"\n· Fix: future resource updates no longer treat files the game rewrote as damaged, so they no longer get stuck at "Verifying"\n· Only a small update download; resources are not downloaded again
-app.delta	311010209	2473531	213bb31f81f79af976a510678af35f936e1577dc0022cdf320b7631db526c99f	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.0--to--73efootball-1.0.4.1.efd
-app.delta	311010209	2473531	213bb31f81f79af976a510678af35f936e1577dc0022cdf320b7631db526c99f	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.0--to--73efootball-1.0.4.1.efd
-app.delta	311010209	2473531	213bb31f81f79af976a510678af35f936e1577dc0022cdf320b7631db526c99f	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.0--to--73efootball-1.0.4.1.efd
-app.delta	311010210	2472980	cd97a3e638252759fd317c02c7011c57ad5d272f65be31211d5a23e01236e237	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.1--to--73efootball-1.0.4.1.efd
-app.delta	311010210	2472980	cd97a3e638252759fd317c02c7011c57ad5d272f65be31211d5a23e01236e237	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.1--to--73efootball-1.0.4.1.efd
-app.delta	311010210	2472980	cd97a3e638252759fd317c02c7011c57ad5d272f65be31211d5a23e01236e237	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.1--to--73efootball-1.0.4.1.efd
-app.delta	311010211	2472980	66e25be3bde6f7b25e2f98e2eac8cf805a73471a8bb498358dc073745344d7f5	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.2--to--73efootball-1.0.4.1.efd
-app.delta	311010211	2472980	66e25be3bde6f7b25e2f98e2eac8cf805a73471a8bb498358dc073745344d7f5	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.2--to--73efootball-1.0.4.1.efd
-app.delta	311010211	2472980	66e25be3bde6f7b25e2f98e2eac8cf805a73471a8bb498358dc073745344d7f5	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.2--to--73efootball-1.0.4.1.efd
-app.delta	311010212	2472980	7e08bcebac09759890addb1b8cfe07c8a2cba1eb3bfdff1b1a1724e81831ea9a	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.3--to--73efootball-1.0.4.1.efd
-app.delta	311010212	2472980	7e08bcebac09759890addb1b8cfe07c8a2cba1eb3bfdff1b1a1724e81831ea9a	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.3--to--73efootball-1.0.4.1.efd
-app.delta	311010212	2472980	7e08bcebac09759890addb1b8cfe07c8a2cba1eb3bfdff1b1a1724e81831ea9a	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.3--to--73efootball-1.0.4.1.efd
-app.delta	311010213	3523407	b4370b9ba74a189240d8a5e86362e9a5eacd1dc112a1d0cd85cc1d8059d62232	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4--to--73efootball-1.0.4.1.efd
-app.delta	311010213	3523407	b4370b9ba74a189240d8a5e86362e9a5eacd1dc112a1d0cd85cc1d8059d62232	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4--to--73efootball-1.0.4.1.efd
-app.delta	311010213	3523407	b4370b9ba74a189240d8a5e86362e9a5eacd1dc112a1d0cd85cc1d8059d62232	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4--to--73efootball-1.0.4.1.efd
-app.delta	311010214	1691443	4815dfe7b8932a99b51394625c18adb95c00c520451f8e8f96622be54fefcca8	https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.1.efd
-app.delta	311010214	1691443	4815dfe7b8932a99b51394625c18adb95c00c520451f8e8f96622be54fefcca8	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.1.efd
-app.delta	311010214	1691443	4815dfe7b8932a99b51394625c18adb95c00c520451f8e8f96622be54fefcca8	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.1-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.1.efd
+app.bytes	1961999482
+app.sha256	1732bfc9d9e82ca73522266eb7c3d3e860ffd2fa7b78d16a346a6f38205a92be
+app.url	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.5.apk
+app.url	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.5.apk
+app.url	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.5.apk
+app.notes	73efootball 1.0.4.5 测试版：\n· 大师联赛：梦幻选秀抽到“世界级”球员也会播放揭晓动画\n· 大师联赛：欧冠等单场决赛打平会进入加时赛，加时仍平进入点球大战\n· DIY：新增「一键生成全部」，导入大量作品后一次生成，只需准备一次资源、重启一次游戏\n· DIY：永久删除过的作品再次导入时，自动另存为新作品，不再提示“相同作品已永久删除”\n· DIY：脸模库打开时不再显示为空，读取慢时自动重试\n· DIY：删除教练后游戏里不再留下空白教练；正在阵容中担任主教练的需先在游戏里换下\n· 修复资源在手机上被重复保存，更新后可释放约 4 GB 空间；更新失败留下的旧资源会自动清理\n· 只需下载几 MB 的更新包，资源不用重新下载
+app.notes.en	73efootball 1.0.4.5 test build:\n· Master League: World Class picks in the dream draft now get the reveal animation\n· Master League: single-match finals that end level now go to extra time, then penalties\n· DIY: new "Generate all" builds every imported project at once, with one resource preparation and one restart\n· DIY: re-importing a permanently deleted project now saves it as a new project instead of refusing it\n· DIY: the face library no longer opens empty; slow reads retry automatically\n· DIY: deleting a coach no longer leaves a blank coach in the game; a coach managing a squad must be replaced in the game first\n· Fix: game resources were stored twice on the phone; updating frees about 4 GB, and leftovers of failed updates are cleaned up\n· Only a small update download; resources are not downloaded again
+app.delta	311010209	3144974	e3785ca26cbaa99f7f29fa05ef6b84e12fd6be90ce1e8aaf235ffcf29646da6c	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.0--to--73efootball-1.0.4.5.efd
+app.delta	311010209	3144974	e3785ca26cbaa99f7f29fa05ef6b84e12fd6be90ce1e8aaf235ffcf29646da6c	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.0--to--73efootball-1.0.4.5.efd
+app.delta	311010209	3144974	e3785ca26cbaa99f7f29fa05ef6b84e12fd6be90ce1e8aaf235ffcf29646da6c	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.0--to--73efootball-1.0.4.5.efd
+app.delta	311010210	3144423	7eb4c04c2a58c9f8be41481204d0bfd6d8cfe8a0b4e68c48d336b0b71e75da78	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.1--to--73efootball-1.0.4.5.efd
+app.delta	311010210	3144423	7eb4c04c2a58c9f8be41481204d0bfd6d8cfe8a0b4e68c48d336b0b71e75da78	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.1--to--73efootball-1.0.4.5.efd
+app.delta	311010210	3144423	7eb4c04c2a58c9f8be41481204d0bfd6d8cfe8a0b4e68c48d336b0b71e75da78	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.1--to--73efootball-1.0.4.5.efd
+app.delta	311010211	3144423	aedc89927fe3139c6dbd899196742d62fcd202bf8a6a1a56959a18c7a992d6d3	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.2--to--73efootball-1.0.4.5.efd
+app.delta	311010211	3144423	aedc89927fe3139c6dbd899196742d62fcd202bf8a6a1a56959a18c7a992d6d3	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.2--to--73efootball-1.0.4.5.efd
+app.delta	311010211	3144423	aedc89927fe3139c6dbd899196742d62fcd202bf8a6a1a56959a18c7a992d6d3	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.2--to--73efootball-1.0.4.5.efd
+app.delta	311010212	3116745	9db717d2faaad55fddd2bf673de496aeb228713349a4939c92866ce6459a2d68	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.3--to--73efootball-1.0.4.5.efd
+app.delta	311010212	3116745	9db717d2faaad55fddd2bf673de496aeb228713349a4939c92866ce6459a2d68	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.3--to--73efootball-1.0.4.5.efd
+app.delta	311010212	3116745	9db717d2faaad55fddd2bf673de496aeb228713349a4939c92866ce6459a2d68	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.3--to--73efootball-1.0.4.5.efd
+app.delta	311010213	4222525	b35e26c1ccf1fb50cff1e32ffe83d16753487463a9057824b53032fab4d108c5	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4--to--73efootball-1.0.4.5.efd
+app.delta	311010213	4222525	b35e26c1ccf1fb50cff1e32ffe83d16753487463a9057824b53032fab4d108c5	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4--to--73efootball-1.0.4.5.efd
+app.delta	311010213	4222525	b35e26c1ccf1fb50cff1e32ffe83d16753487463a9057824b53032fab4d108c5	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4--to--73efootball-1.0.4.5.efd
+app.delta	311010214	3144423	2428292d429d77fc955328d45f8c1caa8c1ea2fce5c286c2300f7ced99359236	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.5.efd
+app.delta	311010214	3144423	2428292d429d77fc955328d45f8c1caa8c1ea2fce5c286c2300f7ced99359236	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.5.efd
+app.delta	311010214	3144423	2428292d429d77fc955328d45f8c1caa8c1ea2fce5c286c2300f7ced99359236	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4-r2--to--73efootball-1.0.4.5.efd
+app.delta	311010215	3144423	ef5985f14cce4027d92997cbb18e34dcdcdc09704798387b5e76d487e73f62f8	https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.1--to--73efootball-1.0.4.5.efd
+app.delta	311010215	3144423	ef5985f14cce4027d92997cbb18e34dcdcdc09704798387b5e76d487e73f62f8	https://ghfast.top/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.1--to--73efootball-1.0.4.5.efd
+app.delta	311010215	3144423	ef5985f14cce4027d92997cbb18e34dcdcdc09704798387b5e76d487e73f62f8	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/v1.0.4.5-beta/73efootball-1.0.4.1--to--73efootball-1.0.4.5.efd
 resources	311010209	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010210	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010211	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010212	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010214	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 resources	311010215	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
+resources	311010216	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858
 bundle	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	1078110
 object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
 object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://ghfast.top/https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
@@ -50,4 +54,4 @@ object	07a379874846186806685b1c5cfcbdfb897bb143afccd51c61de64ad3bd94d00	https://
 object	07a379874846186806685b1c5cfcbdfb897bb143afccd51c61de64ad3bd94d00	https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
 object	07a379874846186806685b1c5cfcbdfb897bb143afccd51c61de64ad3bd94d00	https://ghfast.top/https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
 object	07a379874846186806685b1c5cfcbdfb897bb143afccd51c61de64ad3bd94d00	https://ghproxy.net/https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
-sig	MEUCIHVaohmtLQ0wfnPu1/k3L3cZ2B411/3O/oszVV0dxaeUAiEA49IK8Yi1z1tL/NPD5rR6qTUNwNQpVZaHZvSEJmJesaE=
+sig	MEYCIQCbH3jj9ppw2LEUFBzXb6SZi/DSyK/BO6q9EdtbN/rsDwIhAL3tPvKQEUEF8yDPjeDU66cRuQWUJp1nDhBs7fG2nnpc
