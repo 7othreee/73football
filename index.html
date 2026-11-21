@@ -44,15 +44,17 @@
   .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
   .lang button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
 
-  /* 下载区 */
-  .hero { padding: 44px 0 8px; }
+  /* 下载区（E392：常驻展开，不再折叠） */
+  .hero { padding: 36px 0 8px; }
+  @media (max-width: 560px) { .hero { padding-top: 20px; } }
   .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent-text);
              background: var(--accent-soft); padding: 4px 12px; border-radius: 999px; }
   .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   .hero h1 { margin: 14px 0 6px; font-size: clamp(34px, 7vw, 52px); line-height: 1.08; letter-spacing: -.5px; }
   .hero h1 small { font-size: .42em; font-weight: 600; color: var(--muted); letter-spacing: 0; margin-left: 8px; }
   .hero p.sub { margin: 0; color: var(--muted); }
-  .dl { margin-top: 26px; display: grid; grid-template-columns: 1fr; gap: 14px; background: var(--surface);
+  @media (max-width: 560px) { .hero h1 { margin-top: 10px; } .hero p.sub { font-size: 14px; line-height: 1.55; } }
+  .dl { margin-top: 20px; display: grid; grid-template-columns: 1fr; gap: 14px; background: var(--surface);
         border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: var(--shadow); }
   @media (min-width: 680px) { .dl { grid-template-columns: auto 1fr; align-items: center; gap: 28px; padding: 24px 28px; } }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
@@ -65,24 +67,69 @@
   .btn.off { border: 1px dashed var(--line); color: var(--muted); pointer-events: none; cursor: default; }
   .qq-note { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
   .qq-note:empty { display: none; }
-  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
-  .facts li { border-left: 2px solid var(--line); padding-left: 12px; }
-  .facts b { display: block; font-size: 18px; line-height: 1.3; white-space: nowrap; }
-  .facts span { font-size: 13px; color: var(--muted); line-height: 1.4; display: block; }
-  .pack { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; background: var(--surface);
-          border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 20px; }
+  /* 下载流程：① 安装包 → ② 游戏内自动下载资源（避免误以为要下两次） */
+  .facts { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .facts li { display: flex; gap: 12px; align-items: flex-start; }
+  .facts li > i { flex: none; display: grid; place-items: center; width: 26px; height: 26px; margin-top: 1px; border-radius: 50%;
+                  font: 700 13px/1 inherit; font-style: normal; background: var(--accent-soft); color: var(--accent-text); }
+  .facts li:first-child > i { background: var(--accent); color: var(--accent-ink); }
+  .facts b { display: block; font-size: 15.5px; line-height: 1.4; }
+  .facts b em { font-style: normal; color: var(--accent-text); margin-left: 6px; white-space: nowrap; }
+  .facts span { font-size: 13px; color: var(--muted); line-height: 1.5; display: block; }
+  .facts b span, .facts .rv span { display: inline; font-size: inherit; color: inherit; }
+  .facts .rv { opacity: .85; margin-top: 2px; }
+  .pack { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; background: transparent;
+          border: 1px dashed var(--line); border-radius: var(--radius); padding: 12px 16px; }
   .pack .txt { flex: 1; min-width: 220px; }
-  .pack .txt b { display: block; font-size: 16px; }
+  .pack .txt b { display: block; font-size: 15px; }
   .pack .txt span { display: block; font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .pack .btn.ghost { padding: 9px 16px; font-size: 14.5px; }
   @media (max-width: 560px) { .pack .btn { width: 100%; } }
+
+  /* 游戏展示轮播 */
+  .show { margin-top: 18px; position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
+          background: #0b0817; box-shadow: var(--shadow); }
+  .show .track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .show .track::-webkit-scrollbar { display: none; }
+  .slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 2.6 / 1; margin: 0; }
+  @supports not (aspect-ratio: 1 / 1) { .slide { height: 0; padding-top: 38.5%; } }
+  .slide button.pic { all: unset; position: absolute; inset: 0; cursor: zoom-in; }
+  .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 34px 16px 30px; pointer-events: none;
+                      background: linear-gradient(to top, rgba(10, 6, 22, .92), rgba(10, 6, 22, .55) 55%, transparent); }
+  .slide figcaption b { display: block; font-size: 17px; line-height: 1.3; color: #fff; }
+  .slide figcaption span { display: block; font-size: 13px; line-height: 1.45; color: #d6cdf2; }
+  .slide.ph { background: radial-gradient(90% 120% at 80% 10%, #4a2f9a 0%, #1c1438 55%, #0f0b1d 100%); }
+  .slide.ph .art { position: absolute; inset: 0; display: grid; place-items: center; padding-bottom: 16%; }
+  .slide.ph .art span { display: flex; gap: 10px; }
+  .slide.ph .art i { width: 58px; height: 80px; border-radius: 8px; border: 2px solid rgba(194, 173, 255, .55);
+                     background: linear-gradient(160deg, rgba(211, 195, 255, .35), rgba(142, 107, 240, .12)); transform: rotate(-8deg); }
+  .slide.ph .art i + i { transform: translateY(-8px); border-color: var(--accent); background: linear-gradient(160deg, #d3c3ff, #8e6bf0); }
+  .slide.ph .art i + i + i { transform: rotate(8deg); }
+  .dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 6px; }
+  .dots button { all: unset; cursor: pointer; width: 7px; height: 7px; border-radius: 999px; background: rgba(255, 255, 255, .38); transition: width .2s; }
+  .dots button[aria-current="true"] { width: 20px; background: var(--accent); }
+  .show .nav { all: unset; position: absolute; top: 50%; transform: translateY(-70%); width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+               display: none; place-items: center; background: rgba(15, 11, 29, .65); color: #fff; font-size: 20px; line-height: 1; }
+  .show .nav.prev { left: 10px; } .show .nav.next { right: 10px; }
+  @media (hover: hover) and (min-width: 680px) { .show .nav { display: grid; } .show .nav:hover { background: var(--accent); color: var(--accent-ink); } }
+  @media (max-width: 560px) { .show { margin-top: 14px; border-radius: 14px; } .slide { aspect-ratio: 2 / 1; }
+    @supports not (aspect-ratio: 1 / 1) { .slide { padding-top: 50%; } } .slide figcaption { padding: 22px 12px 22px; }
+    .slide figcaption b { font-size: 15px; }
+    .slide figcaption span { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
   .hint { margin: 12px 2px 0; font-size: 13.5px; color: var(--muted); }
   .sha { margin: 6px 2px 0; font-size: 12px; color: var(--muted); word-break: break-all; }
   .sha summary { cursor: pointer; display: inline; }
 
-  .scam { margin-top: 18px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.6;
-          background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn-text); border-radius: 12px; padding: 12px 14px; }
-  .scam b { font-weight: 700; }
-  .scam svg { flex: none; margin-top: 3px; }
+  .scam { margin-top: 18px; font-size: 14px; line-height: 1.6; background: var(--warn-bg); border: 1px solid var(--warn-line);
+          border-radius: 14px; padding: 14px 16px; color: #f3d6dc; }
+  .scam-h { display: flex; gap: 9px; align-items: center; color: var(--warn-text); font-size: 15.5px; font-weight: 700; line-height: 1.4; }
+  .scam-h svg { flex: none; }
+  .scam ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+  .scam li { position: relative; padding-left: 27px; }
+  .scam li::before { content: ""; position: absolute; left: 7px; top: .7em; width: 5px; height: 5px; border-radius: 50%; background: var(--warn-text); }
+  .scam li b { color: var(--warn-text); }
+  .scam a { color: #ffc2c2; }
 
   /* 通用区块 */
   section { margin-top: 56px; }
@@ -92,8 +139,6 @@
 
   /* 可折叠区块：点标题展开 / 收起 */
   details.sec { margin-top: 44px; }
-  details.sec.first-sec { margin-top: 26px; }
-  #download > .dl { margin-top: 0; }
   details.sec > summary { list-style: none; cursor: pointer; user-select: none; -webkit-user-select: none;
                           justify-content: flex-start; align-items: center; margin-bottom: 0;
                           padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
@@ -184,11 +229,12 @@
     .top nav a { padding: 6px 7px; font-size: 13.5px; }
     .top .right { flex: none; gap: 2px; }
     .brand { font-size: 15px; white-space: nowrap; }
-    .facts { grid-template-columns: 1fr 1fr 1fr; }
-    .facts b { font-size: 16px; }
     .rel-head { gap: 6px 8px; }
-    .btn { width: 100%; }
+    .btn { width: 100%; white-space: normal; text-align: center; padding-left: 12px; padding-right: 12px; gap: 8px; }
+    .actions .btn:not(.ghost) { font-size: 16px; }
+    .actions { min-width: 0; }
   }
+  @media (max-width: 420px) { html[lang="en"] .top nav a:nth-child(n+2) { display: none; } }
 </style>
 </head>
 <body>
@@ -213,8 +259,14 @@
     <h1>73efootball<small id="ver">—</small></h1>
     <p class="sub" id="date"></p>
 
-    <details class="sec first-sec" id="download" open>
-    <summary class="sec-head"><h2 data-i18n="h_download">下载</h2></summary>
+    <div class="show" id="show" role="region" aria-roledescription="carousel">
+      <div class="track" id="show-track"></div>
+      <button type="button" class="nav prev" id="show-prev" aria-label="Previous">‹</button>
+      <button type="button" class="nav next" id="show-next" aria-label="Next">›</button>
+      <div class="dots" id="show-dots"></div>
+    </div>
+
+    <div id="download">
     <div class="dl">
       <div class="actions">
         <a class="btn" id="apk" href="#">
@@ -232,23 +284,26 @@
         </a>
         <p class="qq-note" id="tg-note" hidden></p>
       </div>
-      <ul class="facts">
-        <li><b id="f-apk">—</b><span data-i18n="f_apk">安装包</span></li>
-        <li><b id="f-res">—</b><span data-i18n="f_res">首次资源下载</span></li>
-        <li><b id="f-rv">—</b><span data-i18n="f_rv">资源版本</span></li>
-      </ul>
+      <ol class="facts">
+        <li><i>1</i><div><b><span data-i18n="f_apk">下载安装包</span><em id="f-apk">—</em></b><span data-i18n="f_apk_d"></span></div></li>
+        <li><i>2</i><div><b><span data-i18n="f_res">游戏资源</span><em id="f-res">—</em></b><span data-i18n="f_res_d"></span>
+          <span class="rv"><span data-i18n="f_rv">资源版本</span> <span id="f-rv">—</span></span></div></li>
+      </ol>
     </div>
     <div class="pack" id="pack-hero" hidden>
-      <div class="txt"><b data-i18n="ph_title">离线资源包</b><span id="pack-hero-sub"></span></div>
+      <div class="txt"><b data-i18n="ph_title">下载太慢？用离线资源包</b><span id="pack-hero-sub"></span></div>
       <a class="btn ghost" id="pack-hero-btn" href="#" rel="noopener"></a>
     </div>
     <p class="hint" data-i18n="hint" data-html></p>
     <details class="sha"><summary data-i18n="sha">校验安装包 SHA256</summary><code id="sha"></code></details>
-    </details>
+    </div>
 
     <div class="scam">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.01"/></svg>
-      <div data-i18n="scam" data-html></div>
+      <div class="scam-h">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.01"/></svg>
+        <span data-i18n="scam_h">本软件完全免费，任何收费都是倒卖</span>
+      </div>
+      <ul data-i18n="scam" data-html></ul>
     </div>
   </div>
 
@@ -316,13 +371,22 @@
       qq_tip: '连不上 GitHub 或下载很慢时，用 QQ 闪传。',
       qq_wait: 'QQ 闪传链接暂未提供，更新后会补上。',
       dl_tg: '通过 Telegram 下载', tg_tip: '连不上 GitHub 或下载很慢时，可到 Telegram 频道下载安装包。',
-      f_apk: '安装包', f_res: '首次资源下载', f_rv: '资源版本',
-      ph_title: '离线资源包',
-      ph_sub: '游戏内下载资源太慢时使用，与安装包分开下载{s}。下载后在 App「关于」→「导入资源包」。<a href="#fold-pack">导入说明</a>',
+      f_apk: '下载安装包', f_apk_d: '一般只需要下载这一个文件。',
+      f_res: '游戏资源', f_res_d: '首次进入游戏时自动下载，只需一次，不用另外下载。',
+      f_rv: '资源版本',
+      ph_title: '游戏内下载太慢？用离线资源包',
+      ph_sub: '和游戏内自动下载的是同一份资源{s}，二选一即可，不用重复下载。下载后在 App「关于」→「导入资源包」。<a href="#fold-pack">导入说明</a>',
       ph_btn: '{l} 下载',
       hint: 'Android 手机安装。第一次安装需允许浏览器 / 文件管理“安装未知应用”。<a href="#install">查看安装步骤 →</a>',
       sha: '校验安装包 SHA256',
-      scam: '本软件<b>完全免费</b>，作者只在 Q 群（@7othree）和 Telegram 频道（<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>）出现，没有其他社媒账号。在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>，请退款并举报。',
+      scam_h: '本软件完全免费，任何收费都是倒卖',
+      scam: '<li>作者只在 Q 群（@7othree）和 Telegram 频道（<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>）出现，没有其他社媒账号。</li><li>在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>。</li><li>遇到请<b>退款并举报</b>。</li>',
+      show: [
+        ['大师联赛', '自建经营模式：转会、训练、财务、赛季推进，一气呵成'],
+        ['球员卡面', '新增传奇球员与专属卡面'],
+        ['同步官服卡包', '官服新卡包同步更新'],
+        ['DIY 制卡', '自己设计球员和卡面，生成后直接在游戏里使用']
+      ],
       h_download: '下载',
       h_changelog: '更新日志', count: '共 {n} 次发布',
       b_new: '最新', b_app: 'App 更新', b_res: '仅资源',
@@ -362,10 +426,22 @@
       qq_tip: 'If GitHub is unreachable or slow, use QQ Flash Transfer.',
       qq_wait: 'The QQ Flash Transfer link is not available yet and will be added after the next update.',
       dl_tg: 'Download via Telegram', tg_tip: 'If GitHub is unreachable or slow, get the installer from our Telegram channel.',
-      f_apk: 'Installer size', f_res: 'First-run download', f_rv: 'Resources version',
+      f_apk: 'Download the installer', f_apk_d: 'This is usually the only file you need.',
+      f_res: 'Game resources', f_res_d: 'Downloaded automatically the first time you enter the game — only once, nothing extra to download.',
+      f_rv: 'Resources version',
+      ph_title: 'In-game download too slow? Use the offline resource pack',
+      ph_sub: 'It is the same resources the game downloads automatically{s} — pick one, no need to download both. Then in the app: “About” → “Import resource pack”. <a href="#fold-pack">How to import</a>',
+      ph_btn: 'Download via {l}',
       hint: 'For Android phones. On first install, allow your browser / file manager to “install unknown apps”. <a href="#install">See the install steps →</a>',
       sha: 'Verify installer SHA256',
-      scam: 'This software is <b>completely free</b>. The author only appears in the QQ group (@7othree) and on Telegram (<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>), with no other social media accounts. Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b> — please ask for a refund and report them.',
+      scam_h: 'This software is completely free — anyone charging for it is reselling',
+      scam: '<li>The author only appears in the QQ group (@7othree) and on Telegram (<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>), with no other social media accounts.</li><li>Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b>.</li><li>If it happens to you, please <b>ask for a refund and report them</b>.</li>',
+      show: [
+        ['Master League', 'Run your own club: transfers, training, finances and seasons in one flow'],
+        ['Player cards', 'New legends with their own card art'],
+        ['Official card packs', 'New packs from the official server, kept in step'],
+        ['DIY cards', 'Design your own players and cards, then use them in the game']
+      ],
       h_download: 'Download',
       h_changelog: 'Changelog', count: '{n} releases',
       b_new: 'Latest', b_app: 'App update', b_res: 'Resources only',
@@ -444,6 +520,71 @@
     return b;
   }
 
+  /* ---------- 首屏游戏展示 ----------
+     src 为空的是占位（还没有合适截图），换图时只填 src。文字在 I18N.show 里按同样顺序写。 */
+  var SHOW = [
+    { src: 'img/show-ml.webp' },
+    { src: 'img/show-card.webp' },
+    { src: 'img/card-pack-sync.webp' },
+    { src: '' }   /* DIY 制卡：待补截图 */
+  ];
+  var showIdx = 0, showTimer = null, showUser = false;
+  function renderShow() {
+    var track = $('show-track'), dots = $('show-dots'), txt = T('show');
+    track.textContent = ''; dots.textContent = '';
+    SHOW.forEach(function (s, i) {
+      var f = el('figure', 'slide' + (s.src ? '' : ' ph')), t = txt[i] || ['', ''];
+      f.setAttribute('aria-roledescription', 'slide');
+      f.setAttribute('aria-label', (i + 1) + ' / ' + SHOW.length);
+      if (s.src) {
+        var b = el('button', 'pic'); b.type = 'button'; b.setAttribute('aria-label', t[0]);
+        var img = el('img'); img.src = s.src; img.alt = t[0] + ' — ' + t[1]; img.decoding = 'async';
+        if (i) img.loading = 'lazy';
+        b.appendChild(img);
+        b.addEventListener('click', function () { openShot(s.src, t[0], t[0] + ' · ' + t[1]); });
+        f.appendChild(b);
+      } else {
+        var art = el('div', 'art'), sp = el('span');
+        sp.appendChild(el('i')); sp.appendChild(el('i')); sp.appendChild(el('i'));
+        art.appendChild(sp); f.appendChild(art);
+      }
+      var cap = el('figcaption'); cap.appendChild(el('b', null, t[0])); cap.appendChild(el('span', null, t[1]));
+      f.appendChild(cap); track.appendChild(f);
+      var d = el('button'); d.type = 'button'; d.setAttribute('aria-label', t[0]);
+      d.addEventListener('click', function () { showUser = true; goShow(i); });
+      dots.appendChild(d);
+    });
+    markShow();
+  }
+  function goShow(i) {
+    var track = $('show-track'), n = SHOW.length;
+    showIdx = (i + n) % n;
+    track.scrollTo({ left: showIdx * track.clientWidth, behavior: 'smooth' });
+    markShow();
+  }
+  function markShow() {
+    var ds = $('show-dots').children;
+    for (var i = 0; i < ds.length; i++) ds[i].setAttribute('aria-current', String(i === showIdx));
+  }
+  (function initShow() {
+    var track = $('show-track'), t;
+    track.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+        if (i !== showIdx) { showIdx = i; markShow(); }
+      }, 60);
+    }, { passive: true });
+    ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) { track.addEventListener(ev, function () { showUser = true; }, { passive: true }); });
+    $('show-prev').addEventListener('click', function () { showUser = true; goShow(showIdx - 1); });
+    $('show-next').addEventListener('click', function () { showUser = true; goShow(showIdx + 1); });
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!still) showTimer = setInterval(function () {
+      if (showUser || document.hidden || lb.classList.contains('on')) return;
+      goShow(showIdx + 1);
+    }, 5000);
+  })();
+
   /* ---------- 渲染 ---------- */
   function fillItems(ul, items) {
     items.forEach(function (it) {
@@ -459,14 +600,16 @@
         var cap = loc(it.imgAlt);
         li.appendChild(shot(it.img, cap, cap));
       }
+      /* 条目自带的一组图（imgs）：直接挂在条目下，不再另起图集重复说明 */
+      if (it && typeof it === 'object' && it.imgs && it.imgs.length) li.appendChild(gallery(it.imgs, text));
       ul.appendChild(li);
     });
   }
-  function gallery(imgs) {
+  function gallery(imgs, alt) {
     var g = el('div', 'gallery');
     imgs.forEach(function (im) {
       var f = el('figure'), cap = loc(im.caption);
-      f.appendChild(shot(im.src, cap, cap));
+      f.appendChild(shot(im.src, cap || alt, cap || alt));
       if (cap) f.appendChild(el('figcaption', null, cap));
       g.appendChild(f);
     });
@@ -503,6 +646,8 @@
     var btns = document.querySelectorAll('.lang button');
     for (var j = 0; j < btns.length; j++) btns[j].setAttribute('aria-pressed', String(btns[j].getAttribute('data-lang') === lang));
     $('lb-cap').parentNode.setAttribute('aria-label', T('close'));
+    renderShow();
+    $('show').setAttribute('aria-label', lang === 'zh' ? '游戏展示' : 'Game showcase');
 
     $('ver').textContent = L.version;
     $('date').textContent = T('sub', { d: L.date });
