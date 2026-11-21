@@ -33,9 +33,15 @@ window.CHANGELOG = {
     // 每次发新 APK 要换成新的 QQ 链接（发布脚本不会替你改，也不会清空，旧链接仍指向旧包）。
     qqUrl: "https://qfile.qq.com/q/sxae9dUW6",
     qqNote: "",
+    // Telegram 下载安装包（只在英文页显示，类似中文页的 QQ 闪传）：填频道或某条消息的 https://t.me/... 链接；留空则不显示。
+    // tgNote 可选，可写 { zh: "…", en: "…" }；没写显示默认提示。
+    tgUrl: "https://t.me/efootball_73",
+    tgNote: "",
     // 手动资源包（QQ 闪传 / 网盘）：有链接时页面显示下载按钮；没有就提示“稍后提供”。
     // 例：{ label: "QQ 闪传", url: "https://...", file: "73efootball-resources-3e2fdeec.zip", sizeMB: 4552 }
-    packLinks: []
+    packLinks: [
+      { label: "QQ 闪传", url: "https://qfile.qq.com/q/FmA8VeT5qo", sizeMB: 4552 }
+    ]
   },
   releases: [
     {
