@@ -4,167 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>73efootball · 下载与更新日志</title>
-<meta name="description" content="73efootball 下载、安装教程、更新日志与常见问题。本软件免费，任何收费都是倒卖。">
-<meta name="theme-color" content="#16112a">
+<meta name="description" content="73efootball 最新版下载、安装教程与更新日志。本软件免费，任何收费都是倒卖。">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0f0b1d">
 <style>
   :root {
-    --bg: #110d20; --bg2: #1a1430; --card: #1f1838; --line: #342a55;
-    --text: #ece8f7; --muted: #a59bc4; --accent: #b195ff; --accent2: #8e6bf0;
-    --warn: #ff6b6b; --ok: #6fe3a4; --radius: 18px;
+    --bg: #0f0b1d; --surface: #181230; --line: #2d2450; --text: #ece8f7; --muted: #a197c2;
+    --accent: #a98bff; --accent-ink: #160d33; --accent-soft: #261b4a; --accent-text: #c2adff;
+    --warn-bg: #2a1424; --warn-line: #5a2a3e; --warn-text: #ff9d9d;
+    --radius: 14px; --shadow: 0 10px 34px rgba(108, 79, 208, .22);
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body {
-    margin: 0; color: var(--text); line-height: 1.65;
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-    background: radial-gradient(120% 60% at 50% -10%, #3b2a78 0%, var(--bg) 55%) fixed, var(--bg);
-  }
-  a { color: var(--accent); }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px 56px; }
-  header { padding: 40px 0 8px; display: flex; gap: 16px; align-items: center; }
-  .logo { width: 62px; height: 62px; border-radius: 18px; flex: none; display: grid; place-items: center;
-          background: linear-gradient(145deg, #c7b2ff, var(--accent2)); box-shadow: 0 10px 30px #6c4fd055; }
-  .logo svg { width: 34px; height: 34px; }
-  h1 { margin: 0; font-size: 30px; letter-spacing: .5px; line-height: 1.1; }
-  .ver { color: var(--accent); font: 600 14px/1.4 ui-monospace, Menlo, Consolas, monospace; margin-top: 6px; }
-  nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 8px; }
-  nav a { text-decoration: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
-  nav a:hover { color: var(--text); border-color: var(--accent2); }
-  section { margin-top: 26px; }
-  h2 { font-size: 20px; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; }
-  h2::before { content: ""; width: 6px; height: 20px; border-radius: 3px; background: var(--accent); }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px; }
-  .card + .card { margin-top: 12px; }
-  .dl { display: grid; gap: 14px; }
-  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
-         color: #1b1233; background: linear-gradient(135deg, #d6c6ff, var(--accent)); border-radius: 999px; padding: 16px 20px; font-size: 18px;
-         box-shadow: 0 10px 26px #8e6bf055; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; color: var(--text); background: radial-gradient(110% 55% at 50% -8%, #35256f 0%, var(--bg) 62%) no-repeat, var(--bg);
+         font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; }
+  a { color: var(--accent-text); }
+  code { font: 12.5px ui-monospace, Menlo, Consolas, monospace; background: var(--accent-soft); color: var(--accent-text);
+         padding: 1px 6px; border-radius: 6px; word-break: break-all; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* 顶栏 */
+  .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent);
+         backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  @supports not (background: color-mix(in srgb, red 50%, blue)) { .top { background: var(--bg); } }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 52px; gap: 8px; }
+  .brand { font-weight: 800; letter-spacing: .3px; display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; }
+  .brand i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .top .right { display: flex; align-items: center; gap: 6px; }
+  .top nav { display: flex; gap: 4px; }
+  .top nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+  .top nav a:hover { color: var(--text); background: var(--surface); }
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+  .lang button { all: unset; cursor: pointer; font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 4px 11px; white-space: nowrap; }
+  .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+  .lang button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
+
+  /* 下载区 */
+  .hero { padding: 44px 0 8px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent-text);
+             background: var(--accent-soft); padding: 4px 12px; border-radius: 999px; }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { margin: 14px 0 6px; font-size: clamp(34px, 7vw, 52px); line-height: 1.08; letter-spacing: -.5px; }
+  .hero h1 small { font-size: .42em; font-weight: 600; color: var(--muted); letter-spacing: 0; margin-left: 8px; }
+  .hero p.sub { margin: 0; color: var(--muted); }
+  .dl { margin-top: 26px; display: grid; grid-template-columns: 1fr; gap: 14px; background: var(--surface);
+        border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: var(--shadow); }
+  @media (min-width: 680px) { .dl { grid-template-columns: auto 1fr; align-items: center; gap: 28px; padding: 24px 28px; } }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
+         background: linear-gradient(135deg, #d3c3ff, var(--accent) 55%, #8e6bf0); color: var(--accent-ink); border-radius: 12px; padding: 15px 26px; box-shadow: 0 8px 22px rgba(142, 107, 240, .35); font-size: 17px; white-space: nowrap; }
+  .btn:hover { filter: brightness(1.06); }
   .btn:active { transform: translateY(1px); }
-  .meta { color: var(--muted); font-size: 14px; }
-  .meta code { color: var(--text); font-size: 12px; word-break: break-all; }
-  .warn { border-color: #6b2a3a; background: linear-gradient(180deg, #2a1424, var(--card)); }
-  .warn b, .em { color: var(--warn); }
-  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
-  ol.steps > li { counter-increment: s; position: relative; padding: 0 0 16px 46px; }
-  ol.steps > li:last-child { padding-bottom: 0; }
-  ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%;
-                          display: grid; place-items: center; font-weight: 700; color: #1b1233; background: var(--accent); }
-  ol.steps b { color: #fff; }
-  .note { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--bg2); color: var(--muted); font-size: 14px; }
-  .tag { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 999px; margin-left: 8px; vertical-align: 2px;
-         border: 1px solid var(--line); color: var(--muted); }
-  .tag.app { color: #1b1233; background: var(--accent); border-color: var(--accent); }
-  .rel h3 { margin: 0 0 4px; font-size: 18px; }
-  .rel .when { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
-  .rel ul { margin: 0; padding-left: 20px; }
-  .rel li { margin: 4px 0; }
-  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0 16px; }
-  details + details { margin-top: 10px; }
-  summary { cursor: pointer; padding: 14px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--accent); font-weight: 700; }
-  details[open] summary::after { content: "−"; }
-  details > div { padding: 0 0 14px; color: #d8d2ea; }
-  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+  .btn.ghost { background: transparent; box-shadow: none; color: var(--accent-text); border: 1px solid var(--accent); padding: 10px 18px; font-size: 15px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .facts li { border-left: 2px solid var(--line); padding-left: 12px; }
+  .facts b { display: block; font-size: 18px; line-height: 1.3; }
+  .facts span { font-size: 13px; color: var(--muted); line-height: 1.4; display: block; }
+  .hint { margin: 12px 2px 0; font-size: 13.5px; color: var(--muted); }
+  .sha { margin: 6px 2px 0; font-size: 12px; color: var(--muted); word-break: break-all; }
+  .sha summary { cursor: pointer; display: inline; }
+
+  .scam { margin-top: 18px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.6;
+          background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn-text); border-radius: 12px; padding: 12px 14px; }
+  .scam b { font-weight: 700; }
+  .scam svg { flex: none; margin-top: 3px; }
+
+  /* 通用区块 */
+  section { margin-top: 56px; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  h2 { margin: 0; font-size: 24px; letter-spacing: -.2px; }
+  .sec-head span { color: var(--muted); font-size: 14px; }
+
+  /* 更新日志：时间线 */
+  .tl { position: relative; margin: 0; padding: 0 0 0 22px; list-style: none; }
+  .tl::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: var(--line); border-radius: 2px; }
+  .tl > li { position: relative; margin-bottom: 14px; }
+  .tl > li::before { content: ""; position: absolute; left: -22px; top: 22px; width: 12px; height: 12px; border-radius: 50%;
+                     background: var(--bg); border: 2px solid var(--line); }
+  .tl > li.first::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .rel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .first .rel { border-color: var(--accent); box-shadow: var(--shadow); }
+  .rel-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+  .rel h3 { margin: 0; font-size: 20px; }
+  .badge { font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-text); }
+  .badge.dim { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+  .badge.new { background: var(--accent); color: var(--accent-ink); }
+  .when { margin-left: auto; font-size: 13px; color: var(--muted); }
+  .rel .ttl { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+  .rel ul { margin: 12px 0 0; padding: 0; list-style: none; }
+  .rel li { position: relative; padding-left: 16px; margin: 7px 0; }
+  .rel li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .first .rel li::before { background: var(--accent); }
+  .rel li .t { font-size: 12px; font-weight: 700; color: var(--muted); background: var(--bg); border: 1px solid var(--line); padding: 0 7px; border-radius: 6px; margin-right: 6px; }
+  .rel li .t.fix { color: var(--warn-text); background: var(--warn-bg); border-color: var(--warn-line); }
+  .rel li .t.add { color: var(--accent-text); background: var(--accent-soft); border-color: transparent; }
+  details.old > summary { list-style: none; cursor: pointer; }
+  details.old > summary::-webkit-details-marker { display: none; }
+  details.old > summary .rel-head::after { content: "展开"; font-size: 13px; color: var(--accent-text); }
+  details.old[open] > summary .rel { border-bottom: 0; border-radius: 14px 14px 0 0; padding-bottom: 4px; }
+  details.old > .rel { padding-top: 0; border-top: 0; border-radius: 0 0 14px 14px; }
+  details.old[open] > summary .rel-head::after { content: "收起"; }
+  html[lang="en"] details.old > summary .rel-head::after { content: "Show"; }
+  html[lang="en"] details.old[open] > summary .rel-head::after { content: "Hide"; }
+
+  /* 更新日志里的图片 */
+  .shot { display: block; margin: 8px 0 4px; padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--bg);
+          cursor: zoom-in; overflow: hidden; max-width: 100%; }
+  .shot img { display: block; max-width: 100%; max-height: 340px; height: auto; margin: 0 auto; }
+  .gallery { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
+  .gallery figure { margin: 0; }
+  .gallery .shot { margin: 0; width: 100%; aspect-ratio: 16 / 10; }
+  .gallery .shot img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+  .gallery figcaption { margin-top: 4px; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+  .lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(8, 5, 18, .92); display: none; flex-direction: column; align-items: center;
+              justify-content: center; padding: 20px; gap: 12px; cursor: zoom-out; }
+  .lightbox.on { display: flex; }
+  .lightbox img { max-width: 100%; max-height: calc(100vh - 96px); object-fit: contain; border-radius: 8px; }
+  .lightbox p { margin: 0; color: var(--muted); font-size: 14px; text-align: center; }
+  .lightbox .x { position: absolute; top: 12px; right: 16px; color: var(--text); font-size: 28px; line-height: 1; }
+
+  /* 安装步骤 */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; font-size: 15px; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 10px; border-radius: 50%;
+                      font-weight: 700; font-size: 14px; background: var(--accent); color: var(--accent-ink); }
+  .steps b { display: block; margin-bottom: 2px; font-size: 16px; }
+  .steps .em { color: var(--warn-text); font-weight: 600; }
+  .note { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: var(--surface); border: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
+
+  /* 折叠项 */
+  details.fold { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 18px; }
+  details.fold + details.fold { margin-top: 10px; }
+  details.fold > summary { cursor: pointer; padding: 15px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  details.fold > summary::-webkit-details-marker { display: none; }
+  details.fold > summary::after { content: "+"; color: var(--accent-text); font-weight: 700; font-size: 18px; line-height: 1.3; }
+  details.fold[open] > summary::after { content: "−"; }
+  details.fold > .body { padding: 0 0 16px; color: var(--muted); font-size: 15px; }
+  details.fold > .body ol { margin: 8px 0 0; padding-left: 20px; }
+  details.fold > .body li { margin: 4px 0; }
+  .body .packs { margin-top: 10px; display: grid; gap: 8px; justify-items: start; }
+
+  footer { margin: 64px 0 40px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    .top nav a:nth-child(n+3) { display: none; }
+    .top nav a { padding: 6px 7px; font-size: 13.5px; }
+    .top .right { flex: none; gap: 2px; }
+    .brand { font-size: 15px; white-space: nowrap; }
+    .facts { grid-template-columns: 1fr 1fr 1fr; }
+    .facts b { font-size: 16px; }
+    .rel-head { gap: 6px 8px; }
+    .btn { width: 100%; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#1b1233" stroke-width="2" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>73efootball</a>
+    <div class="right">
+      <nav>
+        <a href="#download" data-i18n="nav_download">下载</a><a href="#changelog" data-i18n="nav_changelog">更新日志</a><a href="#install" data-i18n="nav_install">安装</a><a href="#help" data-i18n="nav_help">帮助</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
-    <div>
-      <h1>73EFOOTBALL</h1>
-      <div class="ver" id="ver">—</div>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <nav>
-    <a href="#download">下载</a><a href="#install">安装教程</a><a href="#migrate">旧版存档</a>
-    <a href="#changelog">更新日志</a><a href="#faq">常见问题</a>
-  </nav>
+<main class="wrap" id="top">
+  <div class="hero" id="download">
+    <span class="eyebrow" data-i18n="eyebrow">最新版本</span>
+    <h1>73efootball<small id="ver">—</small></h1>
+    <p class="sub" id="date"></p>
 
-  <section id="download">
-    <h2>下载</h2>
-    <div class="card dl">
+    <div class="dl">
       <a class="btn" id="apk" href="#">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
-        <span id="apk-label">下载安装包</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        <span id="apk-label"></span>
       </a>
-      <div class="meta" id="apk-meta"></div>
+      <ul class="facts">
+        <li><b id="f-apk">—</b><span data-i18n="f_apk">安装包</span></li>
+        <li><b id="f-res">—</b><span data-i18n="f_res">首次资源下载</span></li>
+        <li><b id="f-rv">—</b><span data-i18n="f_rv">资源版本</span></li>
+      </ul>
     </div>
-    <div class="card warn" style="margin-top:12px">
-      73efootball 是<b>免费</b>的本地纯单机社区交流学习客户端。作者 73 目前只在 Q 群（@7othree）出现，没有任何社媒平台，也从不收取任何费用。<br>
-      在抖音、哔哩哔哩、快手、小红书、闲鱼等平台以任何名义发布、售卖的，均<b>不是本人</b>；拿着它倒卖、以教学或分享资源名义收费的，都是<b>倒卖</b>。如果你是买来的，请立刻退款、举报。
+    <p class="hint" data-i18n="hint" data-html></p>
+    <details class="sha"><summary data-i18n="sha">校验安装包 SHA256</summary><code id="sha"></code></details>
+
+    <div class="scam">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.01"/></svg>
+      <div data-i18n="scam" data-html></div>
     </div>
+  </div>
+
+  <section id="changelog">
+    <div class="sec-head"><h2 data-i18n="h_changelog">更新日志</h2><span id="rel-count"></span></div>
+    <ol class="tl" id="releases"></ol>
   </section>
 
   <section id="install">
-    <h2>安装教程</h2>
-    <div class="card">
-      <ol class="steps">
-        <li><b>下载并安装</b>上面的安装包（约 2GB）。第一次安装时，系统会要求允许浏览器或文件管理“安装未知应用”，按提示打开即可。</li>
-        <li><b>打开 App</b>，仔细阅读防诈骗说明，按提示手动输入一句话后进入。</li>
-        <li>点<b>「进入游戏」</b>：第一次会自动下载资源（约 4.6GB），<span class="em">建议连接 Wi-Fi</span>。中途断网或退出也没关系，下次再点「进入游戏」会接着下载。</li>
-        <li>下载完成后自动导入（一般 1～2 分钟），然后进入游戏。之后再打开就不需要重新下载了。</li>
-      </ol>
-      <div class="note">
-        空间：第一次安装过程中建议至少留出 <b>12GB</b> 可用空间（下载的整包和解出的文件会同时存在一会儿）；装好后约占 7GB。<br>
-        确认版本：启动页顶部会显示「1.0.0 · 资源 2026.11.21」这样的版本号，反馈问题时请一起报上。
-      </div>
-    </div>
-    <div class="card">
-      <b>连不上 GitHub / 下载很慢？用资源包导入</b>
-      <ol class="steps" style="margin-top:12px">
-        <li>下载与 App 版本对应的资源包（文件名类似 <code>73efootball-resources-xxxxxxxx.zip</code>，约 4.5GB）：
-          <div id="pack-links" style="margin-top:10px"></div></li>
-        <li>打开 App →「关于」→「导入资源包」，选中下载好的资源包（有多个分卷时一次全部选上）。</li>
-        <li>提示导入完成后即可进入游戏，导入用的文件可以删除。</li>
-      </ol>
-      <div class="note">资源包与 App 版本不对应、文件不完整或损坏时，App 会拒绝导入，已有资源和存档不受影响。</div>
-    </div>
+    <div class="sec-head"><h2 data-i18n="h_install">安装教程</h2><span data-i18n="install_time">约 5 分钟</span></div>
+    <ol class="steps">
+      <li data-i18n="s1" data-html></li>
+      <li data-i18n="s2" data-html></li>
+      <li data-i18n="s3" data-html></li>
+      <li data-i18n="s4" data-html></li>
+    </ol>
+    <div class="note" data-i18n="install_note" data-html></div>
   </section>
 
-  <section id="migrate">
-    <h2>从旧版本迁移存档</h2>
-    <div class="card">
-      1.0.0 起使用新的包名，可以和旧版本同时安装，但两边的数据不互通。想沿用旧进度：
-      <ol class="steps" style="margin-top:12px">
-        <li>打开<b>旧版本</b> →「存档」→「导出存档」，保存导出的存档文件。</li>
-        <li>打开<b>新版本</b> →「存档」→「导入存档」，选择刚才导出的文件。导入前的进度会自动备份。</li>
-        <li>确认新版本里球员和阵容都在之后，再决定是否卸载旧版本。</li>
-      </ol>
-    </div>
+  <section id="help">
+    <div class="sec-head"><h2 data-i18n="h_help">帮助</h2></div>
+    <details class="fold"><summary data-i18n="q_pack">连不上 GitHub / 下载很慢？用资源包导入</summary>
+      <div class="body">
+        <div data-i18n="a_pack" data-html></div>
+        <div class="packs" id="pack-links"></div>
+        <p style="margin:10px 0 0" data-i18n="a_pack2"></p>
+      </div></details>
+    <details class="fold"><summary data-i18n="q_migrate"></summary>
+      <div class="body" data-i18n="a_migrate" data-html></div></details>
+    <details class="fold"><summary data-i18n="q_update"></summary>
+      <div class="body" data-i18n="a_update" data-html></div></details>
+    <details class="fold"><summary data-i18n="q_reopen"></summary>
+      <div class="body" data-i18n="a_reopen" data-html></div></details>
+    <details class="fold"><summary data-i18n="q_fail"></summary>
+      <div class="body" data-i18n="a_fail" data-html></div></details>
+    <details class="fold"><summary data-i18n="q_beta"></summary>
+      <div class="body" data-i18n="a_beta" data-html></div></details>
   </section>
 
-  <section id="changelog">
-    <h2>更新日志</h2>
-    <div id="releases"></div>
-  </section>
+  <footer data-i18n="footer"></footer>
+</main>
 
-  <section id="faq">
-    <h2>常见问题</h2>
-    <details><summary>提示「资源已更新，需要重新打开 App 才能生效」？</summary>
-      <div>资源刚刚更新过，而 App 还在用更新前的内容。从最近任务里划掉 73efootball，再重新打开、进入游戏即可。存档不受影响。</div></details>
-    <details><summary>资源下载失败或很慢？</summary>
-      <div>换一个网络（建议 Wi-Fi）后再点「进入游戏」，已下载的部分会保留，接着下载。实在下载不动，可以按上面的「资源包导入」操作。</div></details>
-    <details><summary>提示「空间不足」？</summary>
-      <div>清理手机存储后重试。第一次安装建议留出 12GB 以上；下载过程中已经下好的部分不会丢失。</div></details>
-    <details><summary>以后怎么更新？</summary>
-      <div>App 有新版本时，启动后会弹窗提示，点「立即更新」会在 App 内下载更新包并调用系统安装，存档保留（第一次需要允许“安装未知应用”，每次安装需要你点一下确认）。<br>只更新资源时 App 版本号不变，进入游戏时会自动下载有变化的文件，启动页的「资源」版本会变成新的日期。</div></details>
-    <details><summary>正式版和测试版怎么切换？</summary>
-      <div>「关于」→「更新通道」。测试版会更早收到新功能，但可能有问题。从测试版切回正式版后，要等正式版的版本号超过你手上的测试版，才会提示更新。</div></details>
-    <details><summary>能和旧版本同时安装吗？</summary>
-      <div>可以。1.0.0 起使用新包名，和旧版本互不影响；存档迁移见上面的「从旧版本迁移存档」。</div></details>
-    <details><summary>有人在卖、或者收费教学？</summary>
-      <div>本软件免费，任何收费行为都是倒卖，与作者无关。请退款并举报。</div></details>
-  </section>
-
-  <footer>
-    73efootball · 免费软件，不收费、不接受付费分发 · Q 群 @7othree<br>
-    <span id="sha"></span>
-  </footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <span class="x" aria-hidden="true">×</span>
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
 </div>
 
 <script src="changelog.js"></script>
@@ -173,39 +248,240 @@
   var c = window.CHANGELOG;
   if (!c) return;
   var L = c.latest;
-  function gb(mb) { return (mb / 1000).toFixed(mb >= 10000 ? 0 : 1) + 'GB'; }
-  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  document.getElementById('ver').textContent = L.version + ' · 资源 ' + L.resources;
-  var a = document.getElementById('apk');
-  a.href = L.apkUrl;
-  document.getElementById('apk-label').textContent = '下载 73efootball ' + L.version;
-  document.getElementById('apk-meta').textContent = '安装包约 ' + gb(L.apkSizeMB) + '；首次进入游戏还会下载约 ' + gb(L.resourcesSizeMB) +
-    ' 资源。发布日期 ' + L.date + '。';
-  document.getElementById('sha').textContent = '安装包 SHA256：' + L.sha256;
-  var packs = document.getElementById('pack-links');
-  if (L.packLinks && L.packLinks.length) {
-    L.packLinks.forEach(function (p) {
-      var b = el('a', 'btn', '下载资源包 · ' + p.label);
-      b.href = p.url; b.rel = 'noopener'; b.style.fontSize = '16px'; b.style.padding = '12px 16px'; b.style.marginBottom = '8px';
-      packs.appendChild(b);
-      if (p.file) packs.appendChild(el('div', 'meta', p.file + (p.sizeMB ? '，约 ' + gb(p.sizeMB) : '')));
-    });
-  } else {
-    packs.appendChild(el('div', 'meta', '资源包下载链接会随版本更新一起提供；在那之前请先使用上面的在线下载。'));
+
+  /* ---------- 界面文字 / UI strings ---------- */
+  var I18N = {
+    zh: {
+      title: '73efootball · 下载与更新日志',
+      nav_download: '下载', nav_changelog: '更新日志', nav_install: '安装', nav_help: '帮助',
+      eyebrow: '最新版本',
+      sub: '发布于 {d} · 本地纯单机社区交流学习客户端 · 免费',
+      dl: '下载 {v}（Android）',
+      f_apk: '安装包', f_res: '首次资源下载', f_rv: '资源版本',
+      hint: 'Android 手机安装。第一次安装需允许浏览器 / 文件管理“安装未知应用”。<a href="#install">查看安装步骤 →</a>',
+      sha: '校验安装包 SHA256',
+      scam: '本软件<b>完全免费</b>，作者只在 Q 群（@7othree）出现，没有任何社媒账号。在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>，请退款并举报。',
+      h_changelog: '更新日志', count: '共 {n} 次发布',
+      b_new: '最新', b_app: 'App 更新', b_res: '仅资源',
+      res_name: '资源 {r}', res_sub_app: '资源 {r}', res_sub_res: 'App 版本不变，进入游戏自动下载',
+      t_fix: '修复', t_add: '新增', t_opt: '优化',
+      h_install: '安装教程', install_time: '约 5 分钟',
+      s1: '<b>下载并安装</b>上面的安装包，按系统提示允许“安装未知应用”。',
+      s2: '<b>打开 App</b>阅读防诈骗说明，按提示手动输入一句话后进入。',
+      s3: '<b>点「进入游戏」</b>首次自动下载资源，<span class="em">建议连接 Wi-Fi</span>；断网可续传。',
+      s4: '<b>自动导入</b>一般 1～2 分钟，完成后进入游戏，以后无需再下载。',
+      install_note: '空间：首次安装过程建议留出 <b>12GB</b>，装好后约占 7GB。反馈问题时请附上启动页顶部的版本号（如「1.0.0 · 资源 2026.11.21」）。',
+      h_help: '帮助',
+      q_pack: '连不上 GitHub / 下载很慢？用资源包导入',
+      a_pack: '<ol><li>下载与 App 版本对应的资源包（<code>73efootball-resources-xxxxxxxx.zip</code>，约 4.5GB）。</li><li>打开 App →「关于」→「导入资源包」，选中资源包（有多个分卷时一次全部选上）。</li><li>提示导入完成后即可进入游戏，导入用的文件可以删除。</li></ol>',
+      a_pack2: '资源包与 App 版本不对应、文件不完整或损坏时，App 会拒绝导入，已有资源和存档不受影响。',
+      pack_btn: '下载资源包 · {l}', pack_size: '，约 {s}', pack_none: '资源包下载链接会随版本更新一起提供；在那之前请先使用在线下载。',
+      q_migrate: '从旧版本迁移存档',
+      a_migrate: '1.0.0 起使用新包名，可与旧版本同时安装，但数据不互通。<ol><li>打开<b>旧版本</b>→「存档」→「导出存档」，保存文件。</li><li>打开<b>新版本</b>→「存档」→「导入存档」，选择该文件。导入前的进度会自动备份。</li><li>确认球员和阵容都在之后，再决定是否卸载旧版本。</li></ol>',
+      q_update: '以后怎么更新？',
+      a_update: 'App 有新版本时，启动后会弹窗提示，点「立即更新」会在 App 内下载更新包并调用系统安装，存档保留（第一次需要允许“安装未知应用”，每次安装需要点一下确认）。<br>只更新资源时 App 版本号不变，进入游戏时会自动下载有变化的文件，启动页的「资源」版本会变成新的日期。',
+      q_reopen: '提示「资源已更新，需要重新打开 App 才能生效」？',
+      a_reopen: '资源刚更新过，而 App 还在用更新前的内容。从最近任务里划掉 73efootball，重新打开并进入游戏即可，存档不受影响。',
+      q_fail: '资源下载失败，或提示「空间不足」？',
+      a_fail: '换一个网络（建议 Wi-Fi）后再点「进入游戏」，已下载的部分会保留，接着下载。空间不足请清理手机存储后重试（首次安装建议 12GB 以上）。实在下载不动，可使用上面的「资源包导入」。',
+      q_beta: '正式版和测试版怎么切换？',
+      a_beta: '「关于」→「更新通道」。测试版更早收到新功能，但可能有问题。从测试版切回正式版后，要等正式版的版本号超过你手上的测试版，才会提示更新。',
+      footer: '73efootball · 免费软件，不收费、不接受付费分发 · Q 群 @7othree',
+      close: '关闭'
+    },
+    en: {
+      title: '73efootball · Download & Changelog',
+      nav_download: 'Download', nav_changelog: 'Changelog', nav_install: 'Install', nav_help: 'Help',
+      eyebrow: 'Latest release',
+      sub: 'Released {d} · Offline single-player community client for learning and exchange · Free',
+      dl: 'Download {v} (Android)',
+      f_apk: 'Installer size', f_res: 'First-run download', f_rv: 'Resources version',
+      hint: 'For Android phones. On first install, allow your browser / file manager to “install unknown apps”. <a href="#install">See the install steps →</a>',
+      sha: 'Verify installer SHA256',
+      scam: 'This software is <b>completely free</b>. The author only appears in the QQ group (@7othree) and has no social media accounts. Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b> — please ask for a refund and report them.',
+      h_changelog: 'Changelog', count: '{n} releases',
+      b_new: 'Latest', b_app: 'App update', b_res: 'Resources only',
+      res_name: 'Resources {r}', res_sub_app: 'Resources {r}', res_sub_res: 'App unchanged; downloaded automatically when you enter the game',
+      t_fix: 'Fix', t_add: 'New', t_opt: 'Improved',
+      h_install: 'Install guide', install_time: 'About 5 min',
+      s1: '<b>Download &amp; install</b> the installer above, and allow “install unknown apps” when prompted.',
+      s2: '<b>Open the app</b>, read the anti-scam notice, and type the requested sentence to continue.',
+      s3: '<b>Tap “Enter game”</b>. Resources download on first run — <span class="em">Wi-Fi recommended</span>. Resumable if the connection drops.',
+      s4: '<b>Auto import</b> usually takes 1–2 minutes, then the game starts. No need to download again.',
+      install_note: 'Storage: keep about <b>12 GB</b> free during the first install; it takes about 7 GB afterwards. When reporting issues, include the version shown at the top of the start page (e.g. “1.0.0 · resources 2026.11.21”).',
+      h_help: 'Help',
+      q_pack: 'Can’t reach GitHub, or download is slow? Import a resource pack',
+      a_pack: '<ol><li>Download the resource pack matching your app version (<code>73efootball-resources-xxxxxxxx.zip</code>, about 4.5 GB).</li><li>Open the app → “About” → “Import resource pack”, then select the pack (select all parts at once if it is split).</li><li>When the import finishes you can enter the game; the pack files can be deleted.</li></ol>',
+      a_pack2: 'If the pack does not match the app version, or is incomplete or corrupted, the app rejects it and your existing resources and saves are untouched.',
+      pack_btn: 'Download resource pack · {l}', pack_size: ', about {s}', pack_none: 'Resource pack links will be provided with each release. Until then, please use the online download.',
+      q_migrate: 'Migrate saves from an older version',
+      a_migrate: 'Since 1.0.0 the app uses a new package name, so it can be installed next to the old one, but data is not shared.<ol><li>In the <b>old version</b>: “Saves” → “Export save”, and keep the file.</li><li>In the <b>new version</b>: “Saves” → “Import save”, and pick that file. Your progress before importing is backed up automatically.</li><li>Once your players and lineups are confirmed, decide whether to uninstall the old version.</li></ol>',
+      q_update: 'How do updates work?',
+      a_update: 'When a new app version is available you get a prompt at launch. Tap “Update now” to download the update inside the app and hand it to the system installer; saves are kept (allow “install unknown apps” the first time, and tap to confirm each install).<br>For resource-only updates the app version stays the same: changed files are downloaded when you enter the game, and the “resources” version on the start page changes to the new date.',
+      q_reopen: 'Seeing “Resources updated, reopen the app to apply”?',
+      a_reopen: 'Resources were just updated but the app is still using the old content. Swipe 73efootball away from recent apps, reopen it and enter the game. Your saves are not affected.',
+      q_fail: 'Resource download failed, or “Not enough space”?',
+      a_fail: 'Switch networks (Wi-Fi recommended) and tap “Enter game” again; what has already been downloaded is kept and the download continues. If space is low, free up storage and retry (12 GB or more is recommended for the first install). If downloads still crawl, use “Import a resource pack” above.',
+      q_beta: 'How do I switch between Stable and Beta?',
+      a_beta: '“About” → “Update channel”. Beta receives new features earlier but may have issues. After switching from Beta back to Stable, you are only prompted to update once the Stable version number passes the Beta you have installed.',
+      footer: '73efootball · Free software. We never charge and never authorize paid distribution · QQ group @7othree',
+      close: 'Close'
+    }
+  };
+
+  var lang = 'zh';
+  function pickLang() {
+    var q = /[?&]lang=(zh|en)/.exec(location.search);
+    if (q) return q[1];
+    try { var s = localStorage.getItem('lang'); if (s === 'zh' || s === 'en') return s; } catch (e) {}
+    return /^zh/i.test(navigator.language || '') ? 'zh' : 'en';
   }
-  var box = document.getElementById('releases');
-  c.releases.forEach(function (r) {
-    var card = el('div', 'card rel');
-    var h = el('h3', null, r.type === 'app' ? r.version : '资源 ' + r.resources);
-    h.appendChild(el('span', 'tag' + (r.type === 'app' ? ' app' : ''), r.type === 'app' ? 'App 更新' : '只更新资源'));
-    card.appendChild(h);
-    card.appendChild(el('div', 'when', r.date + (r.title ? ' · ' + r.title : '') +
-      (r.type === 'app' ? ' · 资源 ' + r.resources : ' · App 版本不变')));
-    var ul = el('ul');
-    r.items.forEach(function (t) { ul.appendChild(el('li', null, t)); });
-    card.appendChild(ul);
-    box.appendChild(card);
-  });
+  function T(k, vars) {
+    var s = I18N[lang][k]; if (s == null) s = I18N.zh[k]; if (s == null) return k;
+    if (vars) for (var n in vars) s = s.split('{' + n + '}').join(vars[n]);
+    return s;
+  }
+  /* 日志里的文字：字符串 或 {zh, en}；没有英文时回退中文 */
+  function loc(v) {
+    if (v == null) return '';
+    if (typeof v === 'string') return v;
+    return v[lang] || v.zh || v.en || '';
+  }
+
+  function gb(mb) { return (mb / 1000).toFixed(mb >= 10000 ? 0 : 1) + ' GB'; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function $(id) { return document.getElementById(id); }
+
+  /* ---------- 图片放大 ---------- */
+  var lb = $('lightbox');
+  function openShot(src, alt, cap) {
+    $('lb-img').src = src; $('lb-img').alt = alt || '';
+    $('lb-cap').textContent = cap || '';
+    lb.classList.add('on'); lb.setAttribute('aria-hidden', 'false');
+  }
+  function closeShot() { lb.classList.remove('on'); lb.setAttribute('aria-hidden', 'true'); $('lb-img').removeAttribute('src'); }
+  lb.addEventListener('click', closeShot);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeShot(); });
+  function shot(src, alt, cap) {
+    var b = el('button', 'shot'); b.type = 'button';
+    var img = el('img'); img.src = src; img.alt = alt || ''; img.loading = 'lazy'; img.decoding = 'async';
+    b.appendChild(img);
+    b.addEventListener('click', function () { openShot(src, alt, cap); });
+    return b;
+  }
+
+  /* ---------- 渲染 ---------- */
+  function fillItems(ul, items) {
+    items.forEach(function (it) {
+      var text = loc(it), li = el('li');
+      var m = /^(修复|优化|新增|Fix|Improved?|New|Added)\s*[:：]\s*/i.exec(text);
+      if (m) {
+        var k = /^(修复|fix)$/i.test(m[1]) ? 'fix' : /^(新增|new|added)$/i.test(m[1]) ? 'add' : 'opt';
+        li.appendChild(el('span', 't ' + k, T('t_' + k)));
+        text = text.slice(m[0].length);
+      }
+      li.appendChild(document.createTextNode(text));
+      if (it && typeof it === 'object' && it.img) {
+        var cap = loc(it.imgAlt);
+        li.appendChild(shot(it.img, cap, cap));
+      }
+      ul.appendChild(li);
+    });
+  }
+  function gallery(imgs) {
+    var g = el('div', 'gallery');
+    imgs.forEach(function (im) {
+      var f = el('figure'), cap = loc(im.caption);
+      f.appendChild(shot(im.src, cap, cap));
+      if (cap) f.appendChild(el('figcaption', null, cap));
+      g.appendChild(f);
+    });
+    return g;
+  }
+  function head(r, isNew) {
+    var h = el('div', 'rel-head');
+    h.appendChild(el('h3', null, r.type === 'app' ? r.version : T('res_name', { r: r.resources })));
+    if (isNew) h.appendChild(el('span', 'badge new', T('b_new')));
+    h.appendChild(el('span', 'badge' + (r.type === 'app' ? '' : ' dim'), r.type === 'app' ? T('b_app') : T('b_res')));
+    h.appendChild(el('span', 'when', r.date));
+    return h;
+  }
+  function sub(r) {
+    var t = loc(r.title);
+    return el('p', 'ttl', (t ? t + ' · ' : '') + (r.type === 'app' ? T('res_sub_app', { r: r.resources }) : T('res_sub_res')));
+  }
+  function detail(r) {
+    var d = el('div');
+    var ul = el('ul'); fillItems(ul, r.items || []);
+    d.appendChild(ul);
+    if (r.images && r.images.length) d.appendChild(gallery(r.images));
+    return d;
+  }
+
+  function render() {
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = L.version ? '73efootball ' + L.version + ' · ' + T('title').split(' · ')[1] : T('title');
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i], s = T(n.getAttribute('data-i18n'));
+      if (n.hasAttribute('data-html')) n.innerHTML = s; else n.textContent = s;
+    }
+    var btns = document.querySelectorAll('.lang button');
+    for (var j = 0; j < btns.length; j++) btns[j].setAttribute('aria-pressed', String(btns[j].getAttribute('data-lang') === lang));
+    $('lb-cap').parentNode.setAttribute('aria-label', T('close'));
+
+    $('ver').textContent = L.version;
+    $('date').textContent = T('sub', { d: L.date });
+    $('apk').href = L.apkUrl;
+    $('apk-label').textContent = T('dl', { v: L.version });
+    $('f-apk').textContent = (lang === 'zh' ? '约 ' : '≈ ') + gb(L.apkSizeMB);
+    $('f-res').textContent = (lang === 'zh' ? '约 ' : '≈ ') + gb(L.resourcesSizeMB);
+    $('f-rv').textContent = L.resources;
+    $('sha').textContent = L.sha256;
+
+    var packs = $('pack-links'); packs.textContent = '';
+    if (L.packLinks && L.packLinks.length) {
+      L.packLinks.forEach(function (p) {
+        var b = el('a', 'btn ghost', T('pack_btn', { l: loc(p.label) }));
+        b.href = p.url; b.rel = 'noopener';
+        packs.appendChild(b);
+        if (p.file) packs.appendChild(el('span', null, p.file + (p.sizeMB ? T('pack_size', { s: gb(p.sizeMB) }) : '')));
+      });
+    } else {
+      packs.appendChild(el('span', null, T('pack_none')));
+    }
+
+    var box = $('releases'); box.textContent = '';
+    $('rel-count').textContent = T('count', { n: c.releases.length });
+    c.releases.forEach(function (r, i) {
+      var li = el('li', i === 0 ? 'first' : '');
+      if (i < 2) {
+        var card = el('div', 'rel');
+        card.appendChild(head(r, i === 0));
+        card.appendChild(sub(r));
+        card.appendChild(detail(r));
+        li.appendChild(card);
+      } else {
+        var d = el('details', 'old'), s = el('summary'), top = el('div', 'rel');
+        top.appendChild(head(r, false)); top.appendChild(sub(r));
+        s.appendChild(top); d.appendChild(s);
+        var body = el('div', 'rel'); body.appendChild(detail(r));
+        d.appendChild(body); li.appendChild(d);
+      }
+      box.appendChild(li);
+    });
+  }
+
+  function setLang(l) {
+    lang = l;
+    try { localStorage.setItem('lang', l); } catch (e) {}
+    render();
+  }
+  var lb2 = document.querySelectorAll('.lang button');
+  for (var k = 0; k < lb2.length; k++) lb2[k].addEventListener('click', function (e) { setLang(e.currentTarget.getAttribute('data-lang')); });
+
+  lang = pickLang();
+  render();
 })();
 </script>
 </body>
