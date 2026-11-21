@@ -35,6 +35,10 @@
   .top nav { display: flex; gap: 4px; }
   .top nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
   .top nav a:hover { color: var(--text); background: var(--surface); }
+  .tg { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 13px; font-weight: 600; color: var(--accent-text);
+        border: 1px solid var(--line); background: var(--surface); padding: 4px 11px; border-radius: 999px; white-space: nowrap; }
+  .tg:hover { border-color: var(--accent); color: var(--text); }
+  @media (max-width: 560px) { .tg span { display: none; } .tg { padding: 5px 7px; } }
   .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
   .lang button { all: unset; cursor: pointer; font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 4px 11px; white-space: nowrap; }
   .lang button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
@@ -63,8 +67,14 @@
   .qq-note:empty { display: none; }
   .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
   .facts li { border-left: 2px solid var(--line); padding-left: 12px; }
-  .facts b { display: block; font-size: 18px; line-height: 1.3; }
+  .facts b { display: block; font-size: 18px; line-height: 1.3; white-space: nowrap; }
   .facts span { font-size: 13px; color: var(--muted); line-height: 1.4; display: block; }
+  .pack { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; background: var(--surface);
+          border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 20px; }
+  .pack .txt { flex: 1; min-width: 220px; }
+  .pack .txt b { display: block; font-size: 16px; }
+  .pack .txt span { display: block; font-size: 13px; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 560px) { .pack .btn { width: 100%; } }
   .hint { margin: 12px 2px 0; font-size: 13.5px; color: var(--muted); }
   .sha { margin: 6px 2px 0; font-size: 12px; color: var(--muted); word-break: break-all; }
   .sha summary { cursor: pointer; display: inline; }
@@ -79,6 +89,25 @@
   .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
   h2 { margin: 0; font-size: 24px; letter-spacing: -.2px; }
   .sec-head span { color: var(--muted); font-size: 14px; }
+
+  /* 可折叠区块：点标题展开 / 收起 */
+  details.sec { margin-top: 44px; }
+  details.sec.first-sec { margin-top: 26px; }
+  #download > .dl { margin-top: 0; }
+  details.sec > summary { list-style: none; cursor: pointer; user-select: none; -webkit-user-select: none;
+                          justify-content: flex-start; align-items: center; margin-bottom: 0;
+                          padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+  details.sec > summary::-webkit-details-marker { display: none; }
+  details.sec > summary:hover { border-color: var(--accent); }
+  details.sec > summary:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  details.sec[open] > summary { margin-bottom: 16px; }
+  details.sec > summary > span { margin-left: auto; }
+  details.sec > summary > h2:last-child { margin-right: auto; }
+  details.sec > summary::after { content: "展开 ▾"; flex: none; margin-left: 12px; font-size: 13px; font-weight: 600; color: var(--accent-text);
+                                 padding: 3px 11px; border-radius: 999px; background: var(--accent-soft); white-space: nowrap; }
+  details.sec[open] > summary::after { content: "收起 ▴"; }
+  html[lang="en"] details.sec > summary::after { content: "Show ▾"; }
+  html[lang="en"] details.sec[open] > summary::after { content: "Hide ▴"; }
 
   /* 更新日志：时间线 */
   .tl { position: relative; margin: 0; padding: 0 0 0 22px; list-style: none; }
@@ -116,10 +145,10 @@
   .shot { display: block; margin: 8px 0 4px; padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--bg);
           cursor: zoom-in; overflow: hidden; max-width: 100%; }
   .shot img { display: block; max-width: 100%; max-height: 340px; height: auto; margin: 0 auto; }
-  .gallery { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
+  .gallery { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; align-items: start; }
   .gallery figure { margin: 0; }
-  .gallery .shot { margin: 0; width: 100%; aspect-ratio: 16 / 10; }
-  .gallery .shot img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+  .gallery .shot { margin: 0; width: 100%; }
+  .gallery .shot img { width: 100%; height: auto; max-height: none; }
   .gallery figcaption { margin-top: 4px; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
   .lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(8, 5, 18, .92); display: none; flex-direction: column; align-items: center;
               justify-content: center; padding: 20px; gap: 12px; cursor: zoom-out; }
@@ -170,6 +199,7 @@
       <nav>
         <a href="#download" data-i18n="nav_download">下载</a><a href="#changelog" data-i18n="nav_changelog">更新日志</a><a href="#install" data-i18n="nav_install">安装</a><a href="#help" data-i18n="nav_help">帮助</a>
       </nav>
+      <a class="tg" href="https://t.me/efootball_73" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram @efootball_73"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.5c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/></svg><span>Telegram</span></a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
@@ -178,11 +208,13 @@
 </header>
 
 <main class="wrap" id="top">
-  <div class="hero" id="download">
+  <div class="hero">
     <span class="eyebrow" data-i18n="eyebrow">最新版本</span>
     <h1>73efootball<small id="ver">—</small></h1>
     <p class="sub" id="date"></p>
 
+    <details class="sec first-sec" id="download" open>
+    <summary class="sec-head"><h2 data-i18n="h_download">下载</h2></summary>
     <div class="dl">
       <div class="actions">
         <a class="btn" id="apk" href="#">
@@ -194,6 +226,11 @@
           <span id="qq-label"></span>
         </a>
         <p class="qq-note" id="qq-note"></p>
+        <a class="btn ghost" id="tg-dl" href="#" target="_blank" rel="noopener" hidden>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.5c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/></svg>
+          <span id="tg-label"></span>
+        </a>
+        <p class="qq-note" id="tg-note" hidden></p>
       </div>
       <ul class="facts">
         <li><b id="f-apk">—</b><span data-i18n="f_apk">安装包</span></li>
@@ -201,8 +238,13 @@
         <li><b id="f-rv">—</b><span data-i18n="f_rv">资源版本</span></li>
       </ul>
     </div>
+    <div class="pack" id="pack-hero" hidden>
+      <div class="txt"><b data-i18n="ph_title">离线资源包</b><span id="pack-hero-sub"></span></div>
+      <a class="btn ghost" id="pack-hero-btn" href="#" rel="noopener"></a>
+    </div>
     <p class="hint" data-i18n="hint" data-html></p>
     <details class="sha"><summary data-i18n="sha">校验安装包 SHA256</summary><code id="sha"></code></details>
+    </details>
 
     <div class="scam">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.01"/></svg>
@@ -210,13 +252,13 @@
     </div>
   </div>
 
-  <section id="changelog">
-    <div class="sec-head"><h2 data-i18n="h_changelog">更新日志</h2><span id="rel-count"></span></div>
+  <details class="sec" id="changelog" open>
+    <summary class="sec-head"><h2 data-i18n="h_changelog">更新日志</h2><span id="rel-count"></span></summary>
     <ol class="tl" id="releases"></ol>
-  </section>
+  </details>
 
-  <section id="install">
-    <div class="sec-head"><h2 data-i18n="h_install">安装教程</h2><span data-i18n="install_time">约 5 分钟</span></div>
+  <details class="sec" id="install">
+    <summary class="sec-head"><h2 data-i18n="h_install">安装教程</h2><span data-i18n="install_time">约 5 分钟</span></summary>
     <ol class="steps">
       <li data-i18n="s1" data-html></li>
       <li data-i18n="s2" data-html></li>
@@ -224,10 +266,10 @@
       <li data-i18n="s4" data-html></li>
     </ol>
     <div class="note" data-i18n="install_note" data-html></div>
-  </section>
+  </details>
 
-  <section id="help">
-    <div class="sec-head"><h2 data-i18n="h_help">帮助</h2></div>
+  <details class="sec" id="help">
+    <summary class="sec-head"><h2 data-i18n="h_help">帮助</h2></summary>
     <details class="fold" id="fold-pack"><summary data-i18n="q_pack">连不上 GitHub / 下载很慢？用资源包导入</summary>
       <div class="body">
         <div data-i18n="a_pack" data-html></div>
@@ -244,9 +286,9 @@
       <div class="body" data-i18n="a_fail" data-html></div></details>
     <details class="fold"><summary data-i18n="q_beta"></summary>
       <div class="body" data-i18n="a_beta" data-html></div></details>
-  </section>
+  </details>
 
-  <footer data-i18n="footer"></footer>
+  <footer data-i18n="footer" data-html></footer>
 </main>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
@@ -273,10 +315,15 @@
       dl_qq: 'QQ 闪传下载', dl_qq_none: 'QQ 闪传：暂无',
       qq_tip: '连不上 GitHub 或下载很慢时，用 QQ 闪传。',
       qq_wait: 'QQ 闪传链接暂未提供，更新后会补上。',
+      dl_tg: '通过 Telegram 下载', tg_tip: '连不上 GitHub 或下载很慢时，可到 Telegram 频道下载安装包。',
       f_apk: '安装包', f_res: '首次资源下载', f_rv: '资源版本',
+      ph_title: '离线资源包',
+      ph_sub: '游戏内下载资源太慢时使用，与安装包分开下载{s}。下载后在 App「关于」→「导入资源包」。<a href="#fold-pack">导入说明</a>',
+      ph_btn: '{l} 下载',
       hint: 'Android 手机安装。第一次安装需允许浏览器 / 文件管理“安装未知应用”。<a href="#install">查看安装步骤 →</a>',
       sha: '校验安装包 SHA256',
-      scam: '本软件<b>完全免费</b>，作者只在 Q 群（@7othree）出现，没有任何社媒账号。在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>，请退款并举报。',
+      scam: '本软件<b>完全免费</b>，作者只在 Q 群（@7othree）和 Telegram 频道（<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>）出现，没有其他社媒账号。在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>，请退款并举报。',
+      h_download: '下载',
       h_changelog: '更新日志', count: '共 {n} 次发布',
       b_new: '最新', b_app: 'App 更新', b_res: '仅资源',
       res_name: '资源 {r}', res_sub_app: '资源 {r}', res_sub_res: 'App 版本不变，进入游戏自动下载',
@@ -302,7 +349,7 @@
       a_fail: '换一个网络（建议 Wi-Fi）后再点「进入游戏」，已下载的部分会保留，接着下载。空间不足请清理手机存储后重试（首次安装建议 12GB 以上）。实在下载不动，可使用上面的「资源包导入」。',
       q_beta: '正式版和测试版怎么切换？',
       a_beta: '「关于」→「更新通道」。测试版更早收到新功能，但可能有问题。从测试版切回正式版后，要等正式版的版本号超过你手上的测试版，才会提示更新。',
-      footer: '73efootball · 免费软件，不收费、不接受付费分发 · Q 群 @7othree',
+      footer: '73efootball · 免费软件，不收费、不接受付费分发 · Q 群 @7othree · Telegram <a href="https://t.me/efootball_73" target="_blank" rel="noopener">@efootball_73</a>',
       close: '关闭'
     },
     en: {
@@ -314,10 +361,12 @@
       dl_qq: 'Download via QQ Flash Transfer', dl_qq_none: 'QQ Flash Transfer: not available',
       qq_tip: 'If GitHub is unreachable or slow, use QQ Flash Transfer.',
       qq_wait: 'The QQ Flash Transfer link is not available yet and will be added after the next update.',
+      dl_tg: 'Download via Telegram', tg_tip: 'If GitHub is unreachable or slow, get the installer from our Telegram channel.',
       f_apk: 'Installer size', f_res: 'First-run download', f_rv: 'Resources version',
       hint: 'For Android phones. On first install, allow your browser / file manager to “install unknown apps”. <a href="#install">See the install steps →</a>',
       sha: 'Verify installer SHA256',
-      scam: 'This software is <b>completely free</b>. The author only appears in the QQ group (@7othree) and has no social media accounts. Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b> — please ask for a refund and report them.',
+      scam: 'This software is <b>completely free</b>. The author only appears in the QQ group (@7othree) and on Telegram (<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>), with no other social media accounts. Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b> — please ask for a refund and report them.',
+      h_download: 'Download',
       h_changelog: 'Changelog', count: '{n} releases',
       b_new: 'Latest', b_app: 'App update', b_res: 'Resources only',
       res_name: 'Resources {r}', res_sub_app: 'Resources {r}', res_sub_res: 'App unchanged; downloaded automatically when you enter the game',
@@ -343,7 +392,7 @@
       a_fail: 'Switch networks (Wi-Fi recommended) and tap “Enter game” again; what has already been downloaded is kept and the download continues. If space is low, free up storage and retry (12 GB or more is recommended for the first install).',
       q_beta: 'How do I switch between Stable and Beta?',
       a_beta: '“About” → “Update channel”. Beta receives new features earlier but may have issues. After switching from Beta back to Stable, you are only prompted to update once the Stable version number passes the Beta you have installed.',
-      footer: '73efootball · Free software. We never charge and never authorize paid distribution · QQ group @7othree',
+      footer: '73efootball · Free software. We never charge and never authorize paid distribution · QQ group @7othree · Telegram <a href="https://t.me/efootball_73" target="_blank" rel="noopener">@efootball_73</a>',
       close: 'Close'
     }
   };
@@ -467,6 +516,12 @@
     else { qq.removeAttribute('href'); qq.setAttribute('aria-disabled', 'true'); qq.setAttribute('tabindex', '-1'); }
     $('qq-label').textContent = T(hasQQ ? 'dl_qq' : 'dl_qq_none');
     $('qq-note').textContent = hasQQ ? (loc(L.qqNote) || T('qq_tip')) : T('qq_wait');
+    /* Telegram 下载只在非中文页显示（对应中文页的 QQ 闪传）；没填链接就不显示 */
+    var hasTG = /^https:\/\/t\.me\//i.test(L.tgUrl || '');
+    $('tg-dl').hidden = $('tg-note').hidden = (lang === 'zh' || !hasTG);
+    if (hasTG) { $('tg-dl').href = L.tgUrl; }
+    $('tg-label').textContent = T('dl_tg');
+    $('tg-note').textContent = loc(L.tgNote) || T('tg_tip');
     $('f-apk').textContent = (lang === 'zh' ? '约 ' : '≈ ') + gb(L.apkSizeMB);
     $('f-res').textContent = (lang === 'zh' ? '约 ' : '≈ ') + gb(L.resourcesSizeMB);
     $('f-rv').textContent = L.resources;
@@ -476,6 +531,14 @@
     var packs = $('pack-links'); packs.textContent = '';
     var shown = (L.packLinks || []).filter(function (p) { return lang === 'zh' || p.showEn; });
     $('fold-pack').hidden = (lang !== 'zh' && !shown.length);
+    /* 下载区里单独的离线资源包（与 APK 分开），只用中文页可见的链接 */
+    var hp = shown.filter(function (p) { return /^https?:\/\//i.test(p.url || ''); });
+    $('pack-hero').hidden = !hp.length;
+    if (hp.length) {
+      $('pack-hero-btn').href = hp[0].url;
+      $('pack-hero-btn').textContent = T('ph_btn', { l: loc(hp[0].label) });
+      $('pack-hero-sub').innerHTML = T('ph_sub', { s: hp[0].sizeMB ? T('pack_size', { s: gb(hp[0].sizeMB) }) : '' });
+    }
     if (shown.length) {
       shown.forEach(function (p) {
         var b = el('a', 'btn ghost', T('pack_btn', { l: loc(p.label) }));
@@ -516,8 +579,26 @@
   var lb2 = document.querySelectorAll('.lang button');
   for (var k = 0; k < lb2.length; k++) lb2[k].addEventListener('click', function (e) { setLang(e.currentTarget.getAttribute('data-lang')); });
 
+  /* 跳到页内锚点（顶栏、“查看安装步骤”、“导入说明”等）时，先展开目标所在的折叠区块 */
+  function openTo(hash) {
+    var t = hash && hash.length > 1 ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+    for (var n = t; n; n = n.parentNode) if (n.tagName === 'DETAILS') n.open = true;
+    return t;
+  }
+  document.addEventListener('click', function (e) {
+    for (var a = e.target; a && a !== document; a = a.parentNode) {
+      if (a.tagName === 'A') {
+        var h = a.getAttribute('href') || '';
+        if (h.charAt(0) === '#' && h.length > 1) openTo(h);
+        return;
+      }
+    }
+  });
+  window.addEventListener('hashchange', function () { var t = openTo(location.hash); if (t) t.scrollIntoView(); });
+
   lang = pickLang();
   render();
+  if (openTo(location.hash)) setTimeout(function () { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }, 0);
 })();
 </script>
 </body>
