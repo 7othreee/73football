@@ -1,0 +1,17 @@
+EFR-CHANNEL-1
+track	stable
+serial	20261121095653
+published	2026-11-21T09:56:53+00:00
+app.versionCode	311010209
+app.versionName	1.0.0
+app.minVersionCode	0
+app.bytes	1961716779
+app.sha256	2f7de4a1200a25bc6ebbcee4ee744b74d8f0bab17057b1c0048e305e1bb4d114
+app.url	https://github.com/7othreee/73football/releases/download/v1.0.0/73efootball-1.0.0.apk
+app.notes	73efootball 1.0.0：首个在线版。
+bundle	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	1078110
+object	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	https://github.com/7othreee/73football/releases/download/res-1.0.0/{sha256}
+pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	0	1992294400	1af9ea149e2117ed9bf06db7280c14a94a0722d682c1cf51da566f8dd83ff2c2
+pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	1	1992294400	0c734b57ea8a783e888ef0e8330e1024f062ed94d4ad9c122c5e18de8c97a821
+pack	3e2fdeece49a824e0b1fa9e4553c96df25b19bc89721b2a8e3dc7dc3ec07c858	2	567516842	86f286202feb2b4ded0609e3d94c752a7d37ad7c66f4b51b8e51b0fb99c9fe57
+sig	MEQCIF6yMMHyj/WSpX69IAQ56BTugQqh1Kyq4HrO+W9xQmu8AiB0d6uSao2TAmKQAEJZbZMQs7pe34HceBUL/6euE2Bypg==
