@@ -86,37 +86,6 @@
   .pack .btn.ghost { padding: 9px 16px; font-size: 14.5px; }
   @media (max-width: 560px) { .pack .btn { width: 100%; } }
 
-  /* 游戏展示轮播 */
-  .show { margin-top: 18px; position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
-          background: #0b0817; box-shadow: var(--shadow); }
-  .show .track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .show .track::-webkit-scrollbar { display: none; }
-  .slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 2.6 / 1; margin: 0; }
-  @supports not (aspect-ratio: 1 / 1) { .slide { height: 0; padding-top: 38.5%; } }
-  .slide button.pic { all: unset; position: absolute; inset: 0; cursor: zoom-in; }
-  .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .slide figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 34px 16px 30px; pointer-events: none;
-                      background: linear-gradient(to top, rgba(10, 6, 22, .92), rgba(10, 6, 22, .55) 55%, transparent); }
-  .slide figcaption b { display: block; font-size: 17px; line-height: 1.3; color: #fff; }
-  .slide figcaption span { display: block; font-size: 13px; line-height: 1.45; color: #d6cdf2; }
-  .slide.ph { background: radial-gradient(90% 120% at 80% 10%, #4a2f9a 0%, #1c1438 55%, #0f0b1d 100%); }
-  .slide.ph .art { position: absolute; inset: 0; display: grid; place-items: center; padding-bottom: 16%; }
-  .slide.ph .art span { display: flex; gap: 10px; }
-  .slide.ph .art i { width: 58px; height: 80px; border-radius: 8px; border: 2px solid rgba(194, 173, 255, .55);
-                     background: linear-gradient(160deg, rgba(211, 195, 255, .35), rgba(142, 107, 240, .12)); transform: rotate(-8deg); }
-  .slide.ph .art i + i { transform: translateY(-8px); border-color: var(--accent); background: linear-gradient(160deg, #d3c3ff, #8e6bf0); }
-  .slide.ph .art i + i + i { transform: rotate(8deg); }
-  .dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 6px; }
-  .dots button { all: unset; cursor: pointer; width: 7px; height: 7px; border-radius: 999px; background: rgba(255, 255, 255, .38); transition: width .2s; }
-  .dots button[aria-current="true"] { width: 20px; background: var(--accent); }
-  .show .nav { all: unset; position: absolute; top: 50%; transform: translateY(-70%); width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
-               display: none; place-items: center; background: rgba(15, 11, 29, .65); color: #fff; font-size: 20px; line-height: 1; }
-  .show .nav.prev { left: 10px; } .show .nav.next { right: 10px; }
-  @media (hover: hover) and (min-width: 680px) { .show .nav { display: grid; } .show .nav:hover { background: var(--accent); color: var(--accent-ink); } }
-  @media (max-width: 560px) { .show { margin-top: 14px; border-radius: 14px; } .slide { aspect-ratio: 2 / 1; }
-    @supports not (aspect-ratio: 1 / 1) { .slide { padding-top: 50%; } } .slide figcaption { padding: 22px 12px 22px; }
-    .slide figcaption b { font-size: 15px; }
-    .slide figcaption span { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
   .hint { margin: 12px 2px 0; font-size: 13.5px; color: var(--muted); }
   .sha { margin: 6px 2px 0; font-size: 12px; color: var(--muted); word-break: break-all; }
   .sha summary { cursor: pointer; display: inline; }
@@ -259,13 +228,6 @@
     <h1>73efootball<small id="ver">—</small></h1>
     <p class="sub" id="date"></p>
 
-    <div class="show" id="show" role="region" aria-roledescription="carousel">
-      <div class="track" id="show-track"></div>
-      <button type="button" class="nav prev" id="show-prev" aria-label="Previous">‹</button>
-      <button type="button" class="nav next" id="show-next" aria-label="Next">›</button>
-      <div class="dots" id="show-dots"></div>
-    </div>
-
     <div id="download">
     <div class="dl">
       <div class="actions">
@@ -381,12 +343,6 @@
       sha: '校验安装包 SHA256',
       scam_h: '本软件完全免费，任何收费都是倒卖',
       scam: '<li>作者只在 Q 群（@7othree）和 Telegram 频道（<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>）出现，没有其他社媒账号。</li><li>在抖音、B 站、快手、小红书、闲鱼等平台收费、卖资源或收费教学的，都是<b>倒卖</b>。</li><li>遇到请<b>退款并举报</b>。</li>',
-      show: [
-        ['大师联赛', '自建经营模式：转会、训练、财务、赛季推进，一气呵成'],
-        ['球员卡面', '新增传奇球员与专属卡面'],
-        ['同步官服卡包', '官服新卡包同步更新'],
-        ['DIY 制卡', '自己设计球员和卡面，生成后直接在游戏里使用']
-      ],
       h_download: '下载',
       h_changelog: '更新日志', count: '共 {n} 次发布',
       b_new: '最新', b_app: 'App 更新', b_res: '仅资源',
@@ -436,12 +392,6 @@
       sha: 'Verify installer SHA256',
       scam_h: 'This software is completely free — anyone charging for it is reselling',
       scam: '<li>The author only appears in the QQ group (@7othree) and on Telegram (<a href="https://t.me/efootball_73" target="_blank" rel="noopener">t.me/efootball_73</a>), with no other social media accounts.</li><li>Anyone charging for it, selling resources or paid tutorials on Douyin, Bilibili, Kuaishou, Xiaohongshu, Xianyu, etc. is <b>reselling</b>.</li><li>If it happens to you, please <b>ask for a refund and report them</b>.</li>',
-      show: [
-        ['Master League', 'Run your own club: transfers, training, finances and seasons in one flow'],
-        ['Player cards', 'New legends with their own card art'],
-        ['Official card packs', 'New packs from the official server, kept in step'],
-        ['DIY cards', 'Design your own players and cards, then use them in the game']
-      ],
       h_download: 'Download',
       h_changelog: 'Changelog', count: '{n} releases',
       b_new: 'Latest', b_app: 'App update', b_res: 'Resources only',
@@ -520,71 +470,6 @@
     return b;
   }
 
-  /* ---------- 首屏游戏展示 ----------
-     src 为空的是占位（还没有合适截图），换图时只填 src。文字在 I18N.show 里按同样顺序写。 */
-  var SHOW = [
-    { src: 'img/show-ml.webp' },
-    { src: 'img/show-card.webp' },
-    { src: 'img/card-pack-sync.webp' },
-    { src: '' }   /* DIY 制卡：待补截图 */
-  ];
-  var showIdx = 0, showTimer = null, showUser = false;
-  function renderShow() {
-    var track = $('show-track'), dots = $('show-dots'), txt = T('show');
-    track.textContent = ''; dots.textContent = '';
-    SHOW.forEach(function (s, i) {
-      var f = el('figure', 'slide' + (s.src ? '' : ' ph')), t = txt[i] || ['', ''];
-      f.setAttribute('aria-roledescription', 'slide');
-      f.setAttribute('aria-label', (i + 1) + ' / ' + SHOW.length);
-      if (s.src) {
-        var b = el('button', 'pic'); b.type = 'button'; b.setAttribute('aria-label', t[0]);
-        var img = el('img'); img.src = s.src; img.alt = t[0] + ' — ' + t[1]; img.decoding = 'async';
-        if (i) img.loading = 'lazy';
-        b.appendChild(img);
-        b.addEventListener('click', function () { openShot(s.src, t[0], t[0] + ' · ' + t[1]); });
-        f.appendChild(b);
-      } else {
-        var art = el('div', 'art'), sp = el('span');
-        sp.appendChild(el('i')); sp.appendChild(el('i')); sp.appendChild(el('i'));
-        art.appendChild(sp); f.appendChild(art);
-      }
-      var cap = el('figcaption'); cap.appendChild(el('b', null, t[0])); cap.appendChild(el('span', null, t[1]));
-      f.appendChild(cap); track.appendChild(f);
-      var d = el('button'); d.type = 'button'; d.setAttribute('aria-label', t[0]);
-      d.addEventListener('click', function () { showUser = true; goShow(i); });
-      dots.appendChild(d);
-    });
-    markShow();
-  }
-  function goShow(i) {
-    var track = $('show-track'), n = SHOW.length;
-    showIdx = (i + n) % n;
-    track.scrollTo({ left: showIdx * track.clientWidth, behavior: 'smooth' });
-    markShow();
-  }
-  function markShow() {
-    var ds = $('show-dots').children;
-    for (var i = 0; i < ds.length; i++) ds[i].setAttribute('aria-current', String(i === showIdx));
-  }
-  (function initShow() {
-    var track = $('show-track'), t;
-    track.addEventListener('scroll', function () {
-      clearTimeout(t);
-      t = setTimeout(function () {
-        var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
-        if (i !== showIdx) { showIdx = i; markShow(); }
-      }, 60);
-    }, { passive: true });
-    ['touchstart', 'pointerdown', 'wheel'].forEach(function (ev) { track.addEventListener(ev, function () { showUser = true; }, { passive: true }); });
-    $('show-prev').addEventListener('click', function () { showUser = true; goShow(showIdx - 1); });
-    $('show-next').addEventListener('click', function () { showUser = true; goShow(showIdx + 1); });
-    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!still) showTimer = setInterval(function () {
-      if (showUser || document.hidden || lb.classList.contains('on')) return;
-      goShow(showIdx + 1);
-    }, 5000);
-  })();
-
   /* ---------- 渲染 ---------- */
   function fillItems(ul, items) {
     items.forEach(function (it) {
@@ -646,8 +531,6 @@
     var btns = document.querySelectorAll('.lang button');
     for (var j = 0; j < btns.length; j++) btns[j].setAttribute('aria-pressed', String(btns[j].getAttribute('data-lang') === lang));
     $('lb-cap').parentNode.setAttribute('aria-label', T('close'));
-    renderShow();
-    $('show').setAttribute('aria-label', lang === 'zh' ? '游戏展示' : 'Game showcase');
 
     $('ver').textContent = L.version;
     $('date').textContent = T('sub', { d: L.date });
