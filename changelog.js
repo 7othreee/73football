@@ -53,8 +53,10 @@ window.CHANGELOG = {
       date: "2026-11-26",
       title: { zh: "7 张自制传奇卡、官服 11.26 新卡、门德斯体力增能修复", en: "7 custom legend cards, official 26 Nov cards, Nuno Mendes stamina booster fix" },
       items: [
-        { zh: "新增：7 张自制传奇卡——萨穆埃尔、托尔多、德约卡夫、坎特、托尼、曼朱基奇、罗西，在自制卡池抽取", en: "New: 7 custom legend cards - Samuel, Toldo, Djorkaeff, Kante, Toni, Mandzukic, Rossi - in the custom card pool" },
-        { zh: "新增：官服 11.26 更新，142 名新球员、81 张新卡进入 New player 卡池；上一批新卡仍保留在 New player", en: "New: official 26 Nov update - 142 new players and 81 new cards in the New player pool; the previous batch stays there" },
+        { zh: "新增：7 张自制传奇卡——萨穆埃尔、托尔多、德约卡夫、坎特、托尼、曼朱基奇、罗西，在自制卡池抽取", en: "New: 7 custom legend cards - Samuel, Toldo, Djorkaeff, Kante, Toni, Mandzukic, Rossi - in the custom card pool",
+          imgs: [ { src: "img/v106-inter-legends.jpg" }, { src: "img/v106-kante-mandzukic.jpg" }, { src: "img/v106-toni-rossi.jpg" } ] },
+        { zh: "新增：官服 11.26 更新，142 名新球员、81 张新卡进入 New player 卡池；上一批新卡仍保留在 New player", en: "New: official 26 Nov update - 142 new players and 81 new cards in the New player pool; the previous batch stays there",
+          imgs: [ { src: "img/v106-new-player-1.jpg" }, { src: "img/v106-new-player-2.jpg" } ] },
         { zh: "修复：努诺·门德斯（11.19 Speedsters）等卡的“体力 +6”增能不生效", en: "Fix: the \"Stamina +6\" booster (e.g. Nuno Mendes, Speedsters 19 Nov) had no effect" },
         { zh: "优化：下载线路默认 GitHub 直连优先；以后资源更新只下载变化的部分", en: "Improved: GitHub direct is now the first download route; future resource updates only download what changed" },
         { zh: "更新包约 26 MB，另需下载约 340 MB 新资源；更新后首次进入游戏会检查资源，请耐心等待", en: "About 26 MB update plus about 340 MB of new resources; the first start after updating checks resources, please wait" }
